@@ -1,5 +1,4 @@
 #include "Vector3.h"
-#include <string>
 
 Vector3::Vector3(int x, int y, int z) {
 	this->x = x;

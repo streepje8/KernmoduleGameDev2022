@@ -1,13 +1,18 @@
 #include <iostream>
 #include <string>
 #include "Vector3.h"
+#include <SFML/Graphics.hpp>
+#include "List.h"
 using namespace std;
 
 int main()
 {
-    Vector3 vector(1, 0, 0);
-    Vector3 secondvector(0, 0, 1);
-    string str("result: ");
-    str.append((vector + secondvector).to_string());
-    std::cout << str;
+    List<std::string> stringlist = List<std::string>();
+    stringlist.add("MEH");
+    stringlist.add("IS");
+    stringlist.add("DA");
+    stringlist.add("WORST");
+    stringlist.add("BEST");
+    stringlist.remove("WORST");
+    std::cout << stringlist.toString();
 }
