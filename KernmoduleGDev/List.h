@@ -34,54 +34,51 @@ T List<T>::get(int index) {
 
 template <typename T>
 void List<T>::add(T item) {
-	T* oldData = (T*)malloc(sizeof(T) * size);
-	memcpy(oldData, data, sizeof(oldData));
-	data = new T[size + 1];
+	T* newData = new T[size + 1];
 	for (int i = 0; i < size; i++) {
-		data[i] = oldData[i];
+		newData[i] = data[i];
 	}
+	newData[size] = item;
 	size++;
-	data[size] = item;
-	delete oldData;
+	delete[] data;
+	data = newData;
 }
 
 template <typename T>
 void List<T>::remove(int index) {
-	T* oldData = (T*)malloc(sizeof(T) * size);
-	memcpy(oldData, data, sizeof(oldData));
 	int newSize = size - 1;
 	if (newSize < 0) newSize = 0;
-	data = new T[newSize];
-	size--;
+	T* newData = new T[newSize];
 	for (int i = 0; i < size; i++) {
 		if (i < index) {
-			data[i] = oldData[i];
+			newData[i] = data[i];
 		}
 		else if (i > index) {
-			data[i - 1] = oldData[i];
+			newData[i - 1] = data[i];
 		}
 	}
-	delete oldData;
+	size--;
+	delete [] data;
+	data = newData;
 }
 
 template <typename T>
 void List<T>::remove(T item) {
-	T* oldData = (T*)malloc(sizeof(T) * size);
-	memcpy(oldData, data, sizeof(oldData));
 	int index = indexOf(item);
 	int newSize = size - 1;
-	if (newSize < 0) newSize = 0;
-	data = new T[newSize];
-	size--;
+	if (newSize < 0) throw "Item was not found in list!";
+	T* newData = new T[newSize];
 	for (int i = 0; i < size; i++) {
 		if (i < index) {
-			data[i] = oldData[i];
+			newData[i] = data[i];
 		}
 		else if (i > index) {
-			data[i - 1] = oldData[i];
+			newData[i - 1] = data[i];
 		}
 	}
-	delete oldData;
+	size--;
+	delete [] data;
+	data = newData;
 }
 
 template <typename T>
