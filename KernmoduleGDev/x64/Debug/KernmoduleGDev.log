@@ -1,4 +1,28 @@
-﻿  KernmoduleGDev.cpp
-  List.cpp
+﻿  Component.cpp
+C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Component.h(14,14): error C3646: 'gameObject': unknown override specifier
+C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Component.h(14,24): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Component.h(15,13): error C3646: 'transform': unknown override specifier
+C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Component.h(15,22): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+  GameObject.cpp
+C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Component.h(14,14): error C3646: 'gameObject': unknown override specifier
+C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Component.h(14,24): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Component.h(15,13): error C3646: 'transform': unknown override specifier
+C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Component.h(15,22): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\GameObject.h(21,1): error C2768: 'GameObject::GetComponent': illegal use of explicit template arguments
+C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\GameObject.h(33,1): error C2768: 'GameObject::GetComponents': illegal use of explicit template arguments
+C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\GameObject.cpp(5,4): error C2039: 'gameObject': is not a member of 'Component'
+C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Component.h(2): message : see declaration of 'Component'
+C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\GameObject.cpp(6,4): error C2039: 'transform': is not a member of 'Component'
+C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Component.h(2): message : see declaration of 'Component'
+C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\GameObject.cpp(23): error C2280: 'Transform::Transform(void)': attempting to reference a deleted function
+C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Transform.h(12): message : compiler has generated 'Transform::Transform' here
+C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Transform.h(12,1): message : 'Transform::Transform(void)': function was implicitly deleted because a data member 'Transform::position' has either no appropriate default constructor or overload resolution was ambiguous
+C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Transform.h(9): message : see declaration of 'Transform::position'
+  KernmoduleGDev.cpp
+  Quaternion.cpp
+  Transform.cpp
+C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Component.h(14,14): error C3646: 'gameObject': unknown override specifier
+C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Component.h(14,24): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Component.h(15,13): error C3646: 'transform': unknown override specifier
+C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Component.h(15,22): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
   Generating Code...
-  KernmoduleGDev.vcxproj -> C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\x64\Debug\KernmoduleGDev.exe

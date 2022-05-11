@@ -145,12 +145,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Component.cpp" />
+    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="KernmoduleGDev.cpp" />
     <ClCompile Include="List.cpp" />
+    <ClCompile Include="Math.cpp" />
+    <ClCompile Include="Quaternion.cpp" />
+    <ClCompile Include="Transform.cpp" />
     <ClCompile Include="Vector3.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Component.h" />
+    <ClInclude Include="GameObject.h" />
     <ClInclude Include="List.h" />
+    <ClInclude Include="Math.h" />
+    <ClInclude Include="Quaternion.h" />
+    <ClInclude Include="Transform.h" />
     <ClInclude Include="Vector3.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
