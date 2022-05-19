@@ -1,10 +1,10 @@
 #include "GameObject.h"
 #include <typeinfo>
-void GameObject::AddComponent(Component c)
+Component* GameObject::AddComponent(Component* c)
 {
-	c.gameObject = this;
-	c.transform = transform;
-	if (c.stackable) {
+	//c->gameObject = this;
+	//c->transform = transform;
+	if (c->stackable) {
 		components.add(c);
 	}
 	else {
@@ -17,10 +17,15 @@ void GameObject::AddComponent(Component c)
 		if (canAdd)
 			components.add(c);
 	}
+	return c;
 }
 
 GameObject::GameObject()
 {
-	transform = Transform();
+	components = List<Component*>();
+	Transform pretrans = Transform();
+	Transform* trans = &pretrans;
+	AddComponent((Component*)trans);
+	transform = trans;
 
 }

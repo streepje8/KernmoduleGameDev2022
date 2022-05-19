@@ -2,8 +2,7 @@
 #include "Component.h"
 #include "Vector3.h"
 #include "Quaternion.h"
-class Transform :
-    public Component
+class Transform : Component
 {
 	public:
 		Vector3 position;

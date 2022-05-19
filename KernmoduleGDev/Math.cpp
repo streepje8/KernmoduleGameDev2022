@@ -1,5 +1,6 @@
 #include "Math.h"
 #include <cmath>
+#include "Vector3.h"
 
 float Math::DegToRad(float degrees)
 {
@@ -69,4 +70,78 @@ float Math::Ceil(float i)
 int Math::CielToInt(float i)
 {
     return (int)std::ceil(i);
+}
+
+float Math::Min(float a, float b)
+{
+    if (a < b) return a;
+    if (b < a) return b;
+    return a;
+}
+
+float Math::Max(float a, float b)
+{
+    if (a > b) return a;
+    if (b > a) return b;
+    return a;
+}
+
+float Math::Abs(float a)
+{
+    return std::pow((a*a), 0.5f);
+}
+
+float Math::Cos(float a)
+{
+    return std::cos(a);
+}
+
+float Math::Sin(float a)
+{
+    return std::sin(a);
+}
+
+float Math::Tan(float a)
+{
+    return std::tan(a);
+}
+
+float Math::ACos(float a)
+{
+    return std::acos(a);
+}
+
+float Math::ASin(float a)
+{
+    return std::asin(a);
+}
+
+float Math::ATan(float a)
+{
+    return std::atan(a);
+}
+
+float Math::ACosh(float a)
+{
+    return std::acosh(a);
+}
+
+float Math::ASinh(float a)
+{
+    return std::asinh(a);
+}
+
+float Math::ATan2(float a, float b)
+{
+    return std::atan2(a,b);
+}
+
+float Math::Sqrt(float a)
+{
+    return std::pow(a, 0.5f);
+}
+
+Vector3 Math::NormalizeAngleVector(Vector3 v)
+{
+    return Vector3(v.x % 360, v.y % 360, v.z % 360);
 }
