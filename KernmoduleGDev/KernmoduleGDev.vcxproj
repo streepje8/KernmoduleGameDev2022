@@ -153,6 +153,7 @@
     <ClCompile Include="KernmoduleGDev.cpp" />
     <ClCompile Include="List.cpp" />
     <ClCompile Include="Math.cpp" />
+    <ClCompile Include="Matrix4x4.cpp" />
     <ClCompile Include="MemoryManager.cpp" />
     <ClCompile Include="Quaternion.cpp" />
     <ClCompile Include="Stacktracer.cpp" />
@@ -167,6 +168,7 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="Math.h" />
+    <ClInclude Include="Matrix4x4.h" />
     <ClInclude Include="MemoryManager.h" />
     <ClInclude Include="Quaternion.h" />
     <ClInclude Include="Stacktracer.h" />

@@ -37,15 +37,18 @@
     <Filter Include="Source Files\Engine\DefaultComponents">
       <UniqueIdentifier>{b09159ea-44d6-4b1d-8bed-34d6da87f4c9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Engine\Util\Math">
+      <UniqueIdentifier>{9b8b6cb0-052c-4e7f-a339-92722e35a3df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Util\Math">
+      <UniqueIdentifier>{5b872a54-7f7f-48e0-bde5-dd4c96d4913e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="KernmoduleGDev.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="List.cpp">
-      <Filter>Source Files\Engine\Util</Filter>
-    </ClCompile>
-    <ClCompile Include="Vector3.cpp">
       <Filter>Source Files\Engine\Util</Filter>
     </ClCompile>
     <ClCompile Include="GameObject.cpp">
@@ -56,12 +59,6 @@
     </ClCompile>
     <ClCompile Include="Transform.cpp">
       <Filter>Source Files\Engine\DefaultComponents</Filter>
-    </ClCompile>
-    <ClCompile Include="Quaternion.cpp">
-      <Filter>Source Files\Engine\Util</Filter>
-    </ClCompile>
-    <ClCompile Include="Math.cpp">
-      <Filter>Source Files\Engine\Util</Filter>
     </ClCompile>
     <ClCompile Include="Stacktracer.cpp">
       <Filter>Source Files\Engine\Util</Filter>
@@ -78,6 +75,18 @@
     <ClCompile Include="EngineHook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Math.cpp">
+      <Filter>Source Files\Engine\Util\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector3.cpp">
+      <Filter>Source Files\Engine\Util\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Quaternion.cpp">
+      <Filter>Source Files\Engine\Util\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix4x4.cpp">
+      <Filter>Source Files\Engine\Util\Math</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject.h">
@@ -86,20 +95,11 @@
     <ClInclude Include="List.h">
       <Filter>Header Files\Engine\Util</Filter>
     </ClInclude>
-    <ClInclude Include="Vector3.h">
-      <Filter>Header Files\Engine\Util</Filter>
-    </ClInclude>
     <ClInclude Include="Component.h">
       <Filter>Header Files\Engine\Core</Filter>
     </ClInclude>
     <ClInclude Include="Transform.h">
       <Filter>Header Files\Engine\DefaultComponents</Filter>
-    </ClInclude>
-    <ClInclude Include="Quaternion.h">
-      <Filter>Header Files\Engine\Util</Filter>
-    </ClInclude>
-    <ClInclude Include="Math.h">
-      <Filter>Header Files\Engine\Util</Filter>
     </ClInclude>
     <ClInclude Include="Stacktracer.h">
       <Filter>Header Files\Engine\Util</Filter>
@@ -115,6 +115,18 @@
     </ClInclude>
     <ClInclude Include="EngineHook.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Math.h">
+      <Filter>Header Files\Engine\Util\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Quaternion.h">
+      <Filter>Header Files\Engine\Util\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector3.h">
+      <Filter>Header Files\Engine\Util\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix4x4.h">
+      <Filter>Header Files\Engine\Util\Math</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include "Enginehook.h"
 class Engine
 {
 	public:

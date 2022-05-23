@@ -30,7 +30,7 @@ class Component
 			EngineHook hook;
 			Engine::GetInstance().BeginFunction("OnApplicationQuit", typeid(this), hook);
 		};
-		//GameObject* gameObject;
+		//GameObject gameObject;
 		//Transform* transform;
 		~Component() {
 			MemoryManager::GetInstance().CleanOwner(this);
