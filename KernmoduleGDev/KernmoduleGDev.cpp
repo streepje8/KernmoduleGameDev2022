@@ -5,22 +5,27 @@
 #include "Game.h"
 #include "Engine.h"
 #include "MemoryManager.h"
+#include "ParachutePanic.h"
+#include "Debug.h"
+#include "TestClass.h"
 
 int main()
 {
-    Game game = Game();
+    Game* game = new ParachutePanic();	
     try {
-        game.Awake();
+        game->Awake();
     }
-    catch (std::exception exc) {
+    catch (...) {
+		std::exception_ptr exc = std::current_exception();
         try {
-            game.Stop();
+            game->Stop();
         }
-        catch (std::exception excc) {
+        catch (...) {
             Stacktracer::GetTracer().printException(exc);
-            Stacktracer::GetTracer().printException(excc);
+            Stacktracer::GetTracer().printException(std::current_exception());
         }
         Stacktracer::GetTracer().printException(exc);
     }
+    delete game;
     MemoryManager::GetInstance().Clean();
 }

@@ -1,4 +1,5 @@
 #include "MemoryManager.h"
+#include "Debug.h"
 
 MemoryManager& MemoryManager::GetInstance()
 {

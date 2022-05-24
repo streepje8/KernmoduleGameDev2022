@@ -25,16 +25,26 @@ std::string Stacktracer::stopTrace()
 
 void Stacktracer::appendTrace(std::string name, const type_info& origin)
 {
+	if ((trace.size() < backuptrace.size() - 2) && (backuptrace.size() > 0)) {
+		backuptrace.pop();
+	}
 	std::string currentTrace = "at: ";
 	currentTrace.append(origin.name());
 	currentTrace.append("::");
 	currentTrace.append(name);
 	trace.push(currentTrace);
+	if (trace.size() == backuptrace.size()) {
+		backuptrace.pop();
+		backuptrace.push(trace.top());
+	}
+	if (backuptrace.size() < trace.size()) {
+		backuptrace.push(trace.top());
+	}
 }
 
 void Stacktracer::printTrace() 
 {
-	std::stack<std::string> copyboi = std::stack<std::string>(trace);
+	std::stack<std::string> copyboi = std::stack<std::string>(backuptrace);
 	for (int i = 0; i < copyboi.size(); i++) {
 		std::cout << copyboi.top() << std::endl;
 		copyboi.pop();
@@ -48,5 +58,11 @@ void Stacktracer::popTrace() {
 void Stacktracer::printException(std::exception e)
 {
 	std::cout << "Exception: " << e.what() << std::endl;
+	printTrace();
+}
+
+void Stacktracer::printException(std::exception_ptr e)
+{
+	std::cout << "Exception occured: " << std::endl;
 	printTrace();
 }

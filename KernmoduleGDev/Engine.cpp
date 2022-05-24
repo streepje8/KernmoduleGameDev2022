@@ -1,18 +1,16 @@
 #include "Engine.h"
 #include "Stacktracer.h"
 #include "MemoryManager.h"
-#include <memory>
 #include "EngineHook.h"
+#include "Debug.h"
 Engine::Engine() {
 
 }
 
-void Engine::BeginFunction(std::string name, const type_info& origin,EngineHook hook)
+void Engine::BeginFunction(std::string name, const type_info& origin)
 {
-	std::unique_ptr<EngineHook, void(*)(EngineHook*)> functionEndDetector(&hook, [](EngineHook* c) { c->OutOfScope(); });
 	Stacktracer::GetTracer().appendTrace(name, origin);
 	MemoryManager::GetInstance().PushFunction();
-	
 }
 
 Engine& Engine::GetInstance()

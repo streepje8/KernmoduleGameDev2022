@@ -63,9 +63,6 @@
     <ClCompile Include="Stacktracer.cpp">
       <Filter>Source Files\Engine\Util</Filter>
     </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Engine.cpp">
       <Filter>Source Files\Engine\Core</Filter>
     </ClCompile>
@@ -86,6 +83,18 @@
     </ClCompile>
     <ClCompile Include="Matrix4x4.cpp">
       <Filter>Source Files\Engine\Util\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Source Files\Engine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="ParachutePanic.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestClass.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -127,6 +136,18 @@
     </ClInclude>
     <ClInclude Include="Matrix4x4.h">
       <Filter>Header Files\Engine\Util\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="ParachutePanic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Debug.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TestClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Macros.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

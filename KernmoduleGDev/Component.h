@@ -3,6 +3,7 @@
 #include "Engine.h"
 #include "EngineHook.h"
 #include <typeinfo>
+#include "Macros.h"
 class Component
 {
 	private:
@@ -11,24 +12,19 @@ class Component
 		bool enabled = true;
 		bool stackable = true;
 		virtual void Awake() {
-			EngineHook hook;
-			Engine::GetInstance().BeginFunction("Awake", typeid(this),hook);
+			FUNCBEGIN(Awake);
 		};
 		virtual void Start() {
-			EngineHook hook;
-			Engine::GetInstance().BeginFunction("Start", typeid(this), hook);
+			FUNCBEGIN(Start);
 		};
 		virtual void Update() {
-			EngineHook hook;
-			Engine::GetInstance().BeginFunction("Update", typeid(this), hook);
+			FUNCBEGIN(Update);
 		};
 		virtual void OnDestroy() {
-			EngineHook hook;
-			Engine::GetInstance().BeginFunction("OnDestroy", typeid(this), hook);
+			FUNCBEGIN(OnDestroy);
 		};
 		virtual void OnApplicationQuit() {
-			EngineHook hook;
-			Engine::GetInstance().BeginFunction("OnApplicationQuit", typeid(this), hook);
+			FUNCBEGIN(OnApplicationQuit);
 		};
 		//GameObject gameObject;
 		//Transform* transform;

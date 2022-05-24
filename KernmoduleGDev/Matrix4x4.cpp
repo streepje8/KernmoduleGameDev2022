@@ -26,14 +26,14 @@ Matrix4x4 Matrix4x4::operator*(Matrix4x4 v)
 Vector3 Matrix4x4::operator*(Vector3 v)
 {
 	float w = m03*v.x+m13*v.y+m23*v.z+m33;
-	new Vector3(
+	return Vector3(
 		(m00*v.x+m10*v.y+m20*v.z+m30) / w,
 		(m01*v.x+m11*v.y+m21*v.z+m31) / w,
 		(m02*v.x+m12*v.y+m22*v.z+m32) / w
 	);
 }
 
-Matrix4x4 Identity() {
+Matrix4x4 Matrix4x4::Identity() {
 	Matrix4x4 mat = Matrix4x4();
 	mat.m00 = 1;
 	mat.m11 = 1;
