@@ -3,11 +3,11 @@
 class Vector3
 {
 	public:
-		int x = 0;
-		int y = 0;
-		int z = 0;
+		float x = 0;
+		float y = 0;
+		float z = 0;
 		Vector3();
-		Vector3(int x, int y, int z);
+		Vector3(float x, float y, float z);
 		std::string to_string();
 		Vector3 operator+(Vector3 v);
 		Vector3 operator*(float v);

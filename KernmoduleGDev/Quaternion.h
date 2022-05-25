@@ -7,12 +7,16 @@ class Quaternion
 		float y;
 		float z;
 		float w;
+	
+	private:
+		static Quaternion FromEulerRad(Vector3 v);
 		
 	public:
 		Quaternion();
 		Quaternion(float x, float y, float z, float w);
 		static Quaternion Identity();
 		static Vector3 ToEulerRad(Quaternion rotation);
+		static Quaternion Euler(float x, float y, float z);
 		Quaternion operator*(Quaternion q);
 		Vector3 operator*(Vector3 v);
 		bool operator==(Quaternion q);

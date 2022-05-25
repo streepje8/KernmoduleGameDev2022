@@ -9,23 +9,28 @@
 #include "Debug.h"
 #include "TestClass.h"
 
+
 int main()
 {
     Game* game = new ParachutePanic();	
-    try {
+    #if _DEBUG
         game->Awake();
-    }
-    catch (...) {
-		std::exception_ptr exc = std::current_exception();
+        game->Stop();
+    #else
         try {
-            game->Stop();
+            game->Awake();
         }
         catch (...) {
+            std::exception_ptr exc = std::current_exception();
             Stacktracer::GetTracer().printException(exc);
-            Stacktracer::GetTracer().printException(std::current_exception());
+            try {
+                game->Stop();
+            }
+            catch (...) {
+                Stacktracer::GetTracer().printException(std::current_exception());
+            }
         }
-        Stacktracer::GetTracer().printException(exc);
-    }
+    #endif
     delete game;
     MemoryManager::GetInstance().Clean();
 }

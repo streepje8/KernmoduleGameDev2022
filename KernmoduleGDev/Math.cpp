@@ -4,12 +4,12 @@
 
 float Math::DegToRad(float degrees)
 {
-    return degrees * PI_DIV_ONE_EIGHTY;
+    return degrees * DEG_TO_RAD;
 }
 
 float Math::RadToDeg(float radians)
 {
-    return radians * ONE_EIGHTY_DIV_PI;
+    return radians * RAD_TO_DEG;
 }
 
 float Math::Clamp(float value, float min, float max)
@@ -143,5 +143,5 @@ float Math::Sqrt(float a)
 
 Vector3 Math::NormalizeAngleVector(Vector3 v)
 {
-    return Vector3(v.x % 360, v.y % 360, v.z % 360);
+    return Vector3(std::fmod(v.x, 360), std::fmod(v.y,360), std::fmod(v.z, 360));
 }

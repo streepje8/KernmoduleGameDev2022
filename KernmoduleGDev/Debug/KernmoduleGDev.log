@@ -1,0 +1,33 @@
+﻿  Component.cpp
+  Debug.cpp
+  Engine.cpp
+  EngineHook.cpp
+  Game.cpp
+  GameObject.cpp
+  KernmoduleGDev.cpp
+  List.cpp
+  Math.cpp
+C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Math.cpp(7,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Math.cpp(12,20): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Math.cpp(146,70): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Math.cpp(146,50): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Math.cpp(146,29): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Matrix4x4.cpp
+C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Matrix4x4.cpp(65,26): warning C4305: 'argument': truncation from 'const double' to 'float'
+  MemoryManager.cpp
+  ParachutePanic.cpp
+  Quaternion.cpp
+C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Quaternion.cpp(108,29): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Quaternion.cpp(110,63): warning C4305: 'argument': truncation from 'const double' to 'float'
+C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Quaternion.cpp(115,28): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Quaternion.cpp(117,63): warning C4305: 'argument': truncation from 'const double' to 'float'
+C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Quaternion.cpp(123,59): warning C4305: 'argument': truncation from 'const double' to 'float'
+C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Quaternion.cpp(128,70): warning C4305: 'argument': truncation from 'const double' to 'float'
+  Stacktracer.cpp
+C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Stacktracer.cpp(18,19): warning C4018: '<': signed/unsigned mismatch
+C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Stacktracer.cpp(53,20): warning C4018: '<': signed/unsigned mismatch
+  TestClass.cpp
+  Transform.cpp
+  Vector3.cpp
+  Generating Code...
+  KernmoduleGDev.vcxproj -> C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\Debug\KernmoduleGDev.exe

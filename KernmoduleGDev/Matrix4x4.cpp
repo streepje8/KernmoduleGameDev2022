@@ -1,6 +1,8 @@
 #include "Matrix4x4.h"
 #include "Vector3.h"
 #include "Math.h"
+#include <iostream>
+#include "Debug.h"
 Matrix4x4 Matrix4x4::operator*(Matrix4x4 v)
 {
 	return Matrix4x4(
@@ -62,16 +64,17 @@ Matrix4x4 Matrix4x4::Translate(Vector3 t)
 
 Matrix4x4 Matrix4x4::Rotate(Vector3 r)
 {
+	r = r * Math::DEG_TO_RAD;
 	Matrix4x4 rotz = Matrix4x4::Identity();
 	rotz.m00 = Math::Cos(r.z);
 	rotz.m01 = -Math::Sin(r.z);
 	rotz.m10 = Math::Sin(r.z);
 	rotz.m11 = Math::Cos(r.z);
 	Matrix4x4 rotx = Matrix4x4::Identity();
-	rotz.m11 = Math::Cos(r.y);
-	rotz.m12 = -Math::Sin(r.y);
-	rotz.m21 = Math::Sin(r.y);
-	rotz.m22 = Math::Cos(r.y);
+	rotx.m11 = Math::Cos(r.x);
+	rotx.m12 = -Math::Sin(r.x);
+	rotx.m21 = Math::Sin(r.x);
+	rotx.m22 = Math::Cos(r.x);
 	Matrix4x4 roty = Matrix4x4::Identity();
 	roty.m00 = Math::Cos(r.y);
 	roty.m03 = Math::Sin(r.y);
@@ -83,6 +86,16 @@ Matrix4x4 Matrix4x4::Rotate(Vector3 r)
 Matrix4x4 Matrix4x4::Transform(Vector3 pos, Vector3 rot, Vector3 scale)
 {
 	return Scale(scale) * Rotate(rot) * Translate(pos);
+}
+
+std::string Matrix4x4::to_string()
+{
+	std::string result = "[{";
+	result.append(std::to_string(m00) + "," + std::to_string(m01) + "," + std::to_string(m02) + "," + std::to_string(m03) + "},");
+	result.append("{" + std::to_string(m10) + "," + std::to_string(m11) + "," + std::to_string(m12) + "," + std::to_string(m13) + "},");
+	result.append("{" + std::to_string(m20) + "," + std::to_string(m21) + "," + std::to_string(m22) + "," + std::to_string(m23) + "},");
+	result.append("{" + std::to_string(m30) + "," + std::to_string(m31) + "," + std::to_string(m32) + "," + std::to_string(m33) + "}]");
+	return result;
 }
 
 Matrix4x4::Matrix4x4() : m00(0), m01(0), m02(0), m03(0), m10(0), m11(0), m12(0), m13(0), m20(0), m21(0), m22(0), m23(0), m30(0), m31(0), m32(0), m33(0)

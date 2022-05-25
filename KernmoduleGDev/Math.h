@@ -32,7 +32,7 @@ public:
 	static Vector3 NormalizeAngleVector(Vector3 v);
 	static constexpr double PI = 3.14159265358979323846;
 	static constexpr double TWO_PI = 6.28318530717958647692;
-	static constexpr double ONE_EIGHTY_DIV_PI = 57.2957795131;
-	static constexpr double PI_DIV_ONE_EIGHTY = 0.01745329251;
+	static constexpr double RAD_TO_DEG = 57.2957795131;
+	static constexpr double DEG_TO_RAD = 0.01745329251;
 	static constexpr float Epsilon = 0.000001F;
 };
