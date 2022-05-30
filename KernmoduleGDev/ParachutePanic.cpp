@@ -10,8 +10,10 @@
 void ParachutePanic::Awake() {
 	FUNCBEGIN(Awake);
 	Vector3 meh(1,0,0);
+    Matrix4x4 mat = Matrix4x4::Rotate(Vector3(0, 90, 0));
+    mat = mat * Matrix4x4::Inverse(mat);
 	Debug::Log(Matrix4x4::Rotate(Vector3(0, 90, 0)).to_string());
-	Debug::Log((Matrix4x4::Rotate(Vector3(0, 90, 0)) * meh).to_string());
+	Debug::Log((mat).to_string());
     /*
     sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
     sf::CircleShape shape(100.f);
