@@ -4,6 +4,7 @@ class ParachutePanic :
     public Game
 {
     public:
+        void Setup();
         void Awake();
 };
 

@@ -43,6 +43,18 @@
     <Filter Include="Source Files\Engine\Util\Math">
       <UniqueIdentifier>{5b872a54-7f7f-48e0-bde5-dd4c96d4913e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Engine\Util\Debugging">
+      <UniqueIdentifier>{91ccd1b4-bb93-4ba3-95a1-bdab3977df25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Util\Debugging">
+      <UniqueIdentifier>{1ab7bec3-8e7b-4aa0-8e33-f77ca49ddd47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Rendering">
+      <UniqueIdentifier>{a4af0c25-ebc9-4b85-8e90-b97391a76350}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Rendering">
+      <UniqueIdentifier>{6ae36ba4-adab-4597-bb07-211368e25ce5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="KernmoduleGDev.cpp">
@@ -60,17 +72,11 @@
     <ClCompile Include="Transform.cpp">
       <Filter>Source Files\Engine\DefaultComponents</Filter>
     </ClCompile>
-    <ClCompile Include="Stacktracer.cpp">
-      <Filter>Source Files\Engine\Util</Filter>
-    </ClCompile>
     <ClCompile Include="Engine.cpp">
       <Filter>Source Files\Engine\Core</Filter>
     </ClCompile>
     <ClCompile Include="MemoryManager.cpp">
       <Filter>Source Files\Engine\Util</Filter>
-    </ClCompile>
-    <ClCompile Include="EngineHook.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Math.cpp">
       <Filter>Source Files\Engine\Util\Math</Filter>
@@ -90,11 +96,23 @@
     <ClCompile Include="ParachutePanic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Debug.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="TestClass.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug.cpp">
+      <Filter>Source Files\Engine\Util\Debugging</Filter>
+    </ClCompile>
+    <ClCompile Include="EngineHook.cpp">
+      <Filter>Source Files\Engine\Util\Debugging</Filter>
+    </ClCompile>
+    <ClCompile Include="Stacktracer.cpp">
+      <Filter>Source Files\Engine\Util\Debugging</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderPipeline.cpp">
+      <Filter>Source Files\Engine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="BuildInRenderer.cpp">
+      <Filter>Source Files\Engine\Rendering</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -110,20 +128,11 @@
     <ClInclude Include="Transform.h">
       <Filter>Header Files\Engine\DefaultComponents</Filter>
     </ClInclude>
-    <ClInclude Include="Stacktracer.h">
-      <Filter>Header Files\Engine\Util</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Engine.h">
       <Filter>Header Files\Engine\Core</Filter>
     </ClInclude>
     <ClInclude Include="MemoryManager.h">
       <Filter>Header Files\Engine\Util</Filter>
-    </ClInclude>
-    <ClInclude Include="EngineHook.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Math.h">
       <Filter>Header Files\Engine\Util\Math</Filter>
@@ -140,14 +149,29 @@
     <ClInclude Include="ParachutePanic.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Debug.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="TestClass.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Stacktracer.h">
+      <Filter>Header Files\Engine\Util\Debugging</Filter>
+    </ClInclude>
+    <ClInclude Include="Debug.h">
+      <Filter>Header Files\Engine\Util\Debugging</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineHook.h">
+      <Filter>Header Files\Engine\Util\Debugging</Filter>
+    </ClInclude>
     <ClInclude Include="Macros.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Engine\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Header Files\Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderPipeline.h">
+      <Filter>Header Files\Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="BuildInRenderer.h">
+      <Filter>Header Files\Engine\Rendering</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

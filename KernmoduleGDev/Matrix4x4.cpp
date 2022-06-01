@@ -111,23 +111,57 @@ Matrix4x4 Matrix4x4::Transform(Vector3 pos, Vector3 rot, Vector3 scale)
 }
 
 //Gestolen en geconvert van https://github.com/jMonkeyEngine/jmonkeyengine/blob/97e83fbee30cf2b78bb1617ab17a5b6167ae29f4/jme3-core/src/main/java/com/jme3/math/Matrix3f.java#L981
+//En https://github.com/microsoft/referencesource/blob/master/System.Numerics/System/Numerics/Matrix4x4.cs
 Matrix4x4 Matrix4x4::Inverse(Matrix4x4 v)
 {
+	Matrix4x4 inv = Matrix4x4(v);
 	float det = v.determinant();
+	float invDet = 1.0f / det;
 	if(Math::Abs(det) <= Math::Epsilon) {
 		return Matrix4x4::Identity();
 	}
-	Matrix4x4 inv = Matrix4x4(v);
-	inv.m00 = inv.m11 * inv.m22 - inv.m12 * inv.m21;
-	inv.m01 = inv.m02 * inv.m21 - inv.m01 * inv.m22;
-	inv.m02 = inv.m01 * inv.m12 - inv.m02 * inv.m11;
-	inv.m10 = inv.m12 * inv.m20 - inv.m10 * inv.m22;
-	inv.m11 = inv.m00 * inv.m22 - inv.m02 * inv.m20;
-	inv.m12 = inv.m02 * inv.m10 - inv.m00 * inv.m12;
-	inv.m20 = inv.m10 * inv.m21 - inv.m11 * inv.m20;
-	inv.m21 = inv.m01 * inv.m20 - inv.m00 * inv.m21;
-	inv.m22 = inv.m00 * inv.m11 - inv.m01 * inv.m10;
-	inv = inv.Scale(1.0f / det);
+	
+	//These vars do nothing, but they are for clarity
+	float a = v.m00, b = v.m01, c = v.m02, d = v.m03;
+	float e = v.m10, f = v.m11, g = v.m12, h = v.m13;
+	float i = v.m20, j = v.m21, k = v.m22, l = v.m23;
+	float m = v.m30, n = v.m31, o = v.m32, p = v.m33;
+
+	float kp_lo = k * p - l * o;
+	float jp_ln = j * p - l * n;
+	float jo_kn = j * o - k * n;
+	float ip_lm = i * p - l * m;
+	float io_km = i * o - k * m;
+	float in_jm = i * n - j * m;
+	float gp_ho = g * p - h * o;
+	float fp_hn = f * p - h * n;
+	float fo_gn = f * o - g * n;
+	float ep_hm = e * p - h * m;
+	float eo_gm = e * o - g * m;
+	float en_fm = e * n - f * m;
+	float gl_hk = g * l - h * k;
+	float fl_hj = f * l - h * j;
+	float fk_gj = f * k - g * j;
+	float el_hi = e * l - h * i;
+	float ek_gi = e * k - g * i;
+	float ej_fi = e * j - f * i;
+
+	inv.m00 = +(f * kp_lo - g * jp_ln + h * jo_kn) * invDet;
+	inv.m10 = -(e * kp_lo - g * ip_lm + h * io_km) * invDet;
+	inv.m20 = +(e * jp_ln - f * ip_lm + h * in_jm) * invDet;
+	inv.m30 = -(e * jo_kn - f * io_km + g * in_jm) * invDet;
+	inv.m01 = -(b * kp_lo - c * jp_ln + d * jo_kn) * invDet;
+	inv.m11 = +(a * kp_lo - c * ip_lm + d * io_km) * invDet;
+	inv.m21 = -(a * jp_ln - b * ip_lm + d * in_jm) * invDet;
+	inv.m31 = +(a * jo_kn - b * io_km + c * in_jm) * invDet;
+	inv.m02 = +(b * gp_ho - c * fp_hn + d * fo_gn) * invDet;
+	inv.m12 = -(a * gp_ho - c * ep_hm + d * eo_gm) * invDet;
+	inv.m22 = +(a * fp_hn - b * ep_hm + d * en_fm) * invDet;
+	inv.m32 = -(a * fo_gn - b * eo_gm + c * en_fm) * invDet;
+	inv.m03 = -(b * gl_hk - c * fl_hj + d * fk_gj) * invDet;
+	inv.m13 = +(a * gl_hk - c * el_hi + d * ek_gi) * invDet;
+	inv.m23 = -(a * fl_hj - b * el_hi + d * ej_fi) * invDet;
+	inv.m33 = +(a * fk_gj - b * ek_gi + c * ej_fi) * invDet;
 	return inv;
 }
 
@@ -186,26 +220,6 @@ Matrix4x4::Matrix4x4(const Matrix4x4& c)
 	m32 = c.m32;
 	m33 = c.m33;
 }
-
-//Matrix4x4::Matrix4x4(Matrix4x4* c)
-//{
-//	m00 = c->m00;
-//	m01 = c->m01;
-//	m02 = c->m02;
-//	m03 = c->m03;
-//	m10 = c->m10;
-//	m11 = c->m11;
-//	m12 = c->m12;
-//	m13 = c->m13;
-//	m20 = c->m20;
-//	m21 = c->m21;
-//	m22 = c->m22;
-//	m23 = c->m23;
-//	m30 = c->m30;
-//	m31 = c->m31;
-//	m32 = c->m32;
-//	m33 = c->m33;
-//}
 
 Matrix4x4::Matrix4x4(float m00, float m01, float m02, float m03, float m10, float m11, float m12, float m13, float m20, float m21, float m22, float m23, float m30, float m31, float m32, float m33) : 
 	m00(m00), m01(m01), m02(m02), m03(m03), m10(m10), m11(m11), m12(m12), m13(m13), m20(m20), m21(m21), m22(m22), m23(m23), m30(m30), m31(m31), m32(m32), m33(m33)

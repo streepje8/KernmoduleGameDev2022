@@ -145,6 +145,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BuildInRenderer.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Debug.cpp" />
     <ClCompile Include="Engine.cpp" />
@@ -158,12 +159,14 @@
     <ClCompile Include="MemoryManager.cpp" />
     <ClCompile Include="ParachutePanic.cpp" />
     <ClCompile Include="Quaternion.cpp" />
+    <ClCompile Include="RenderPipeline.cpp" />
     <ClCompile Include="Stacktracer.cpp" />
     <ClCompile Include="TestClass.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="Vector3.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BuildInRenderer.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Debug.h" />
     <ClInclude Include="Engine.h" />
@@ -177,6 +180,7 @@
     <ClInclude Include="MemoryManager.h" />
     <ClInclude Include="ParachutePanic.h" />
     <ClInclude Include="Quaternion.h" />
+    <ClInclude Include="RenderPipeline.h" />
     <ClInclude Include="Stacktracer.h" />
     <ClInclude Include="TestClass.h" />
     <ClInclude Include="Transform.h" />
