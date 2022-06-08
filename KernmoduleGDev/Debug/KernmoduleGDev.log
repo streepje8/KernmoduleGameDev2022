@@ -1,4 +1,5 @@
-﻿  Component.cpp
+﻿  BuildInRenderer.cpp
+  Component.cpp
   Debug.cpp
   Engine.cpp
   EngineHook.cpp
@@ -13,7 +14,7 @@ C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Math.cpp(1
 C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Math.cpp(146,50): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Math.cpp(146,29): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   Matrix4x4.cpp
-C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Matrix4x4.cpp(65,26): warning C4305: 'argument': truncation from 'const double' to 'float'
+C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Matrix4x4.cpp(89,26): warning C4305: 'argument': truncation from 'const double' to 'float'
   MemoryManager.cpp
   ParachutePanic.cpp
   Quaternion.cpp
@@ -23,11 +24,31 @@ C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Quaternion
 C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Quaternion.cpp(117,63): warning C4305: 'argument': truncation from 'const double' to 'float'
 C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Quaternion.cpp(123,59): warning C4305: 'argument': truncation from 'const double' to 'float'
 C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Quaternion.cpp(128,70): warning C4305: 'argument': truncation from 'const double' to 'float'
+  RenderPipeline.cpp
+  SceneManager.cpp
   Stacktracer.cpp
 C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Stacktracer.cpp(18,19): warning C4018: '<': signed/unsigned mismatch
 C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\KernmoduleGDev\Stacktracer.cpp(53,20): warning C4018: '<': signed/unsigned mismatch
   TestClass.cpp
-  Transform.cpp
   Vector3.cpp
   Generating Code...
-  KernmoduleGDev.vcxproj -> C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\Debug\KernmoduleGDev.exe
+BuildInRenderer.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: virtual __thiscall sf::RenderWindow::~RenderWindow(void)" (__imp_??1RenderWindow@sf@@UAE@XZ) referenced in function "public: void __thiscall BuildInRenderer::Render(class sf::RenderWindow)" (?Render@BuildInRenderer@@QAEXVRenderWindow@sf@@@Z)
+KernmoduleGDev.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: virtual __thiscall sf::RenderWindow::~RenderWindow(void)" (__imp_??1RenderWindow@sf@@UAE@XZ)
+KernmoduleGDev.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::Color::Color(unsigned char,unsigned char,unsigned char,unsigned char)" (__imp_??0Color@sf@@QAE@EEEE@Z) referenced in function _main
+KernmoduleGDev.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: void __thiscall sf::RenderTarget::clear(class sf::Color const &)" (__imp_?clear@RenderTarget@sf@@QAEXABVColor@2@@Z) referenced in function _main
+KernmoduleGDev.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::VideoMode::VideoMode(unsigned int,unsigned int,unsigned int)" (__imp_??0VideoMode@sf@@QAE@III@Z) referenced in function _main
+KernmoduleGDev.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::String::String(char const *,class std::locale const &)" (__imp_??0String@sf@@QAE@PBDABVlocale@std@@@Z) referenced in function _main
+KernmoduleGDev.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::String::~String(void)" (__imp_??1String@sf@@QAE@XZ) referenced in function _main
+KernmoduleGDev.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: void __thiscall sf::Window::close(void)" (__imp_?close@Window@sf@@QAEXXZ) referenced in function _main
+KernmoduleGDev.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: bool __thiscall sf::Window::isOpen(void)const " (__imp_?isOpen@Window@sf@@QBE_NXZ) referenced in function _main
+KernmoduleGDev.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: bool __thiscall sf::Window::pollEvent(class sf::Event &)" (__imp_?pollEvent@Window@sf@@QAE_NAAVEvent@2@@Z) referenced in function _main
+KernmoduleGDev.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: void __thiscall sf::Window::display(void)" (__imp_?display@Window@sf@@QAEXXZ) referenced in function _main
+KernmoduleGDev.obj : error LNK2019: unresolved external symbol "__declspec(dllimport) public: __thiscall sf::RenderWindow::RenderWindow(class sf::VideoMode,class sf::String const &,unsigned int,struct sf::ContextSettings const &)" (__imp_??0RenderWindow@sf@@QAE@VVideoMode@1@ABVString@1@IABUContextSettings@1@@Z) referenced in function _main
+C:\lib\SFML-2.5.1\lib\sfml-graphics.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'x86'
+C:\lib\SFML-2.5.1\lib\sfml-window.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'x86'
+C:\lib\SFML-2.5.1\lib\sfml-system.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'x86'
+C:\lib\SFML-2.5.1\lib\sfml-graphics-s.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'x86'
+C:\lib\SFML-2.5.1\lib\sfml-window-s.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'x86'
+C:\lib\SFML-2.5.1\lib\sfml-audio-s.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'x86'
+C:\lib\SFML-2.5.1\lib\sfml-system-s.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'x86'
+C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\Debug\KernmoduleGDev.exe : fatal error LNK1120: 11 unresolved externals

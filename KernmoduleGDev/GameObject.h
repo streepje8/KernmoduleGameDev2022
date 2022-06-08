@@ -2,22 +2,24 @@
 #include "Component.h"
 #include "List.h"
 #include "Transform.h"
+
 class GameObject
 {
 	private:
-		List<Component*> components;
+		List<Component*>* components;
 	public:
 		template<typename T>
-		T* GetComponent();
+		T* GetComponentFromObject();
 		template<typename T>
 		List<T*> GetComponents();
 		Component* AddComponent(Component* c);
 		Transform* transform;
 		GameObject();
+		~GameObject();
 };
 
 template <typename T>
-T* GameObject::GetComponent()
+T* GameObject::GetComponentFromObject()
 {
 	for (int i = 0; i < components.count(); i++)
 	{

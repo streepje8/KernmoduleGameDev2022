@@ -4,6 +4,8 @@
 #include "EngineHook.h"
 #include <typeinfo>
 #include "Macros.h"
+#include "Transform.h"
+
 class Component
 {
 	private:
@@ -11,6 +13,13 @@ class Component
 	public:
 		bool enabled = true;
 		bool stackable = true;
+		void* gameObject;
+		Transform* transform;
+		template<typename T>
+		T* GetComponent()
+		{
+			return gameObject->GetComponentFromObject();
+		};
 		virtual void Awake() {
 			FUNCBEGIN(Awake);
 		};
@@ -26,8 +35,7 @@ class Component
 		virtual void OnApplicationQuit() {
 			FUNCBEGIN(OnApplicationQuit);
 		};
-		//GameObject gameObject;
-		//Transform* transform;
+		
 		~Component() {
 			MemoryManager::GetInstance().CleanOwner(this);
 		}
