@@ -58,6 +58,9 @@
     <Filter Include="Header Files\Engine\SceneManagement">
       <UniqueIdentifier>{b6c82b09-d7ad-4f06-ba0a-008f04724a9d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Engine\SceneManagement">
+      <UniqueIdentifier>{1825e2f0-0545-404d-8bd0-bb560eb3f9f3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="KernmoduleGDev.cpp">
@@ -96,9 +99,6 @@
     <ClCompile Include="ParachutePanic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TestClass.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Debug.cpp">
       <Filter>Source Files\Engine\Util\Debugging</Filter>
     </ClCompile>
@@ -114,11 +114,17 @@
     <ClCompile Include="BuildInRenderer.cpp">
       <Filter>Source Files\Engine\Rendering</Filter>
     </ClCompile>
-    <ClCompile Include="SceneManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Scene.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Engine\SceneManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Source Files\Engine\SceneManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>Source Files\Engine\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeRenderer.cpp">
+      <Filter>Source Files\Engine\Rendering</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -152,9 +158,6 @@
     <ClInclude Include="ParachutePanic.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TestClass.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Stacktracer.h">
       <Filter>Header Files\Engine\Util\Debugging</Filter>
     </ClInclude>
@@ -184,6 +187,15 @@
     </ClInclude>
     <ClInclude Include="Scene.h">
       <Filter>Header Files\Engine\SceneManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>Header Files\Engine\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonUtil.h">
+      <Filter>Header Files\Engine\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeRenderer.h">
+      <Filter>Header Files\Engine\Rendering</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

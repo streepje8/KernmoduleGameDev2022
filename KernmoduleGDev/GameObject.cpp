@@ -23,8 +23,8 @@ Component* GameObject::AddComponent(Component* c)
 
 GameObject::GameObject()
 {
-	components = (List<Component*>*)MemoryManager::GetInstance().AllocateOwned(List<Component*>(), this).pointer;
-	transform = (Transform*)MemoryManager::GetInstance().AllocateOwned(Transform(), this).pointer;
+	components = (List<Component*>*)MemoryManager::GetInstance().AllocateOwned(List<Component*>(), this)->pointer;
+	transform = (Transform*)MemoryManager::GetInstance().AllocateOwned(Transform(), this)->pointer;
 }
 
 GameObject::~GameObject()

@@ -23,11 +23,11 @@ public:
 	Vector3 operator*(Vector3 v);
 	static Matrix4x4 Identity();
 	Matrix4x4 Scale(float s);
-	static Matrix4x4 Scale(Vector3 s);
-	static Matrix4x4 Translate(Vector3 t);
-	static Matrix4x4 Rotate(Vector3 r);
-	static Matrix4x4 Transform(Vector3 pos, Vector3 rot, Vector3 scale);
-	static Matrix4x4 Inverse(Matrix4x4 v);
+	static Matrix4x4 Scale(Vector3& s);
+	static Matrix4x4 Translate(Vector3& t);
+	static Matrix4x4 Rotate(Vector3& r);
+	static Matrix4x4 Transform(Vector3& pos, Vector3& rot, Vector3& scale);
+	static Matrix4x4 Inverse(Matrix4x4& v);
 	float determinant();
 	std::string to_string();
 	Matrix4x4();

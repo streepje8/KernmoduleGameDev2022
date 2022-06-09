@@ -7,6 +7,9 @@ private:
 
 public:
 	Scene();
+	void Instantiate(GameObject* go);
+	void Destroy(GameObject* go);
+	List<GameObject*>* GetObjects();
 	~Scene() {
 		MemoryManager::GetInstance().CleanOwner(this);
 	};

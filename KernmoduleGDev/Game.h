@@ -9,7 +9,7 @@ class Game
 		std::string name;
 		std::string windowTitle;
 		bool ExitOnEscape;
-		RenderPipeline renderer;
+		RenderPipeline* renderer;
 		virtual void Setup() {};
 		virtual void Awake() {};
 		virtual void Start() {};

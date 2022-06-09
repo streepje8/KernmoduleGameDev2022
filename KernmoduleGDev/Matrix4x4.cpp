@@ -66,7 +66,7 @@ Matrix4x4 Matrix4x4::Scale(float s)
 	return mat;
 }
 
-Matrix4x4 Matrix4x4::Scale(Vector3 s)
+Matrix4x4 Matrix4x4::Scale(Vector3& s)
 {
 	Matrix4x4 mat = Matrix4x4::Identity();
 	mat.m00 = s.x;
@@ -75,7 +75,7 @@ Matrix4x4 Matrix4x4::Scale(Vector3 s)
 	return mat;
 }
 
-Matrix4x4 Matrix4x4::Translate(Vector3 t)
+Matrix4x4 Matrix4x4::Translate(Vector3& t)
 {
 	Matrix4x4 mat = Matrix4x4::Identity();
 	mat.m03 = t.x;
@@ -84,7 +84,7 @@ Matrix4x4 Matrix4x4::Translate(Vector3 t)
 	return mat;
 }
 
-Matrix4x4 Matrix4x4::Rotate(Vector3 r)
+Matrix4x4 Matrix4x4::Rotate(Vector3& r)
 {
 	r = r * Math::DEG_TO_RAD;
 	Matrix4x4 roty = Matrix4x4::Identity();
@@ -105,14 +105,14 @@ Matrix4x4 Matrix4x4::Rotate(Vector3 r)
 	return roty * rotx * rotz;
 }
 
-Matrix4x4 Matrix4x4::Transform(Vector3 pos, Vector3 rot, Vector3 scale)
+Matrix4x4 Matrix4x4::Transform(Vector3& pos, Vector3& rot, Vector3& scale)
 {
 	return Translate(pos) * Rotate(rot) * Scale(scale);
 }
 
 //Gestolen en geconvert van https://github.com/jMonkeyEngine/jmonkeyengine/blob/97e83fbee30cf2b78bb1617ab17a5b6167ae29f4/jme3-core/src/main/java/com/jme3/math/Matrix3f.java#L981
 //En https://github.com/microsoft/referencesource/blob/master/System.Numerics/System/Numerics/Matrix4x4.cs
-Matrix4x4 Matrix4x4::Inverse(Matrix4x4 v)
+Matrix4x4 Matrix4x4::Inverse(Matrix4x4& v)
 {
 	Matrix4x4 inv = Matrix4x4(v);
 	float det = v.determinant();

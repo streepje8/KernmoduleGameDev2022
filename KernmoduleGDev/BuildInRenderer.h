@@ -4,6 +4,6 @@ class BuildInRenderer :
     public RenderPipeline
 {
     public:
-        void Render(sf::RenderWindow win);
+        void Render(sf::RenderWindow* win) override;
 };
 

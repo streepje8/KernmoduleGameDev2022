@@ -15,7 +15,7 @@ MemoryManager::MemoryManager()
 void MemoryManager::PushFunction()
 {
 	scopeDepth++;
-	lookupTable[scopeDepth] = MemoryList();
+	lookupTable[scopeDepth] = new MemoryList();
 }
 
 void MemoryManager::PopFunction()
@@ -35,13 +35,14 @@ void MemoryManager::Clean()
 void MemoryManager::CleanScope(int scope) 
 {
 	if (lookupTable.count(scope)) {
-		lookupTable[scope].Discard();
+		lookupTable[scope]->Discard();
+		delete lookupTable[scope];
 	}
 }
 
 void MemoryManager::CleanOwner(void* owner)
 {
 	if (lookupTableOwned.count(owner)) {
-		lookupTableOwned[owner].Discard();
+		lookupTableOwned[owner]->Discard();
 	}
 }

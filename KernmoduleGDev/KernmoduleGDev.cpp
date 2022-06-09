@@ -33,7 +33,7 @@ int main()
             }
             game->Update();
             window.clear();
-            game->renderer.Render(window);
+            game->renderer->Render(&window);
             window.display();
         }
         game->Stop();
@@ -47,10 +47,15 @@ int main()
                 {
                     if (winEvent.type == sf::Event::Closed)
                         window.close();
+                    if (winEvent.type == sf::Event::KeyPressed)
+                    {
+                        if (winEvent.key.code == sf::Keyboard::Escape)
+                            if (game->ExitOnEscape)window.close();
+                    }
                 }
                 game->Update();
                 window.clear();
-                game->renderer.Render(window);
+                game->renderer.Render(&window);
                 window.display();
             }
             game->Stop();

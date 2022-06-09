@@ -12,6 +12,9 @@ class GameObject
 		T* GetComponentFromObject();
 		template<typename T>
 		List<T*> GetComponents();
+		List<Component*>* GetAllComponents() {
+			return components;
+		}
 		Component* AddComponent(Component* c);
 		Transform* transform;
 		GameObject();

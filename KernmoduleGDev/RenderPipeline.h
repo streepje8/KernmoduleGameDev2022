@@ -3,6 +3,6 @@
 class RenderPipeline
 {
 	public:
-		virtual void Render(sf::RenderWindow& win) {};
+		virtual void Render(sf::RenderWindow* win) {};
 };
 

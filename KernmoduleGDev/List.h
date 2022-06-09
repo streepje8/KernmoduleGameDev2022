@@ -4,16 +4,29 @@ template <typename T>
 class List
 {
 	private:
-		T* data = new T[0];
-		int size = 0;
+		T* data;
+		int size;
 public:
+	List() { size = 0; data = nullptr; };
+	List(const List& a) {
+		size = a.size;
+		if (size > 0) {
+			data = new T[size];
+			memcpy(data, a.data, sizeof * data);
+		}
+		else { data = nullptr; }
+	}
+	~List() {
+		size = 0;
+		delete[] data;
+	}
 	int count();
 	T get(int index);
-	void add(T item);
-	void remove(T item);
+	void add(T& item);
+	void remove(T& item);
 	void remove(int index);
-	int indexOf(T item);
-	bool contains(T item);
+	int indexOf(T& item);
+	bool contains(T& item);
 	std::string toString();
 };
 
@@ -33,7 +46,7 @@ T List<T>::get(int index) {
 }
 
 template <typename T>
-void List<T>::add(T item) {
+void List<T>::add(T& item) {
 	T* newData = new T[size + 1];
 	for (int i = 0; i < size; i++) {
 		newData[i] = data[i];
@@ -48,6 +61,11 @@ template <typename T>
 void List<T>::remove(int index) {
 	int newSize = size - 1;
 	if (newSize < 0) newSize = 0;
+	if (newSize < 1) {
+		size = 0;
+		data = nullptr;
+		return;
+	}
 	T* newData = new T[newSize];
 	for (int i = 0; i < size; i++) {
 		if (i < index) {
@@ -63,10 +81,15 @@ void List<T>::remove(int index) {
 }
 
 template <typename T>
-void List<T>::remove(T item) {
+void List<T>::remove(T& item) {
 	int index = indexOf(item);
 	int newSize = size - 1;
 	if (newSize < 0) throw "Item was not found in list!";
+	if (newSize < 1) {
+		size = 0;
+		data = nullptr;
+		return;
+	}
 	T* newData = new T[newSize];
 	for (int i = 0; i < size; i++) {
 		if (i < index) {
@@ -82,7 +105,7 @@ void List<T>::remove(T item) {
 }
 
 template <typename T>
-int List<T>::indexOf(T item) {
+int List<T>::indexOf(T& item) {
 	for (int i = 0; i < size; i++) {
 		if (data[i] == item) {
 			return i;
@@ -92,7 +115,7 @@ int List<T>::indexOf(T item) {
 }
 
 template <typename T>
-bool List<T>::contains(T item) {
+bool List<T>::contains(T& item) {
 	return indexOf(item) != -1;
 }
 
