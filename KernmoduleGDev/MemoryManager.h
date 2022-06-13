@@ -57,6 +57,17 @@ class MemoryManager
 		}
 
 		template<typename T>
+		MemoryItem* AllocateOwned(T* obj, void* owner) {
+			MemoryItem* item = new MemoryItem();
+			item->pointer = obj;
+			if (!lookupTableOwned.count(owner)) {
+				lookupTableOwned[owner] = new MemoryList();
+			}
+			lookupTableOwned[owner]->items.add(item);
+			return item;
+		}
+
+		template<typename T>
 		MemoryItem* AllocateOwned(void* owner) {
 			MemoryItem* item = new MemoryItem();
 			item->pointer = new T();

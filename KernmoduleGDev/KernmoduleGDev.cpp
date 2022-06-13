@@ -7,7 +7,6 @@
 #include "MemoryManager.h"
 #include "ParachutePanic.h"
 #include "Debug.h"
-#include "TestClass.h"
 #include <SFML/Graphics.hpp>
 
 

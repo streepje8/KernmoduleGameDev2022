@@ -1,5 +1,16 @@
-﻿  KernmoduleGDev.cpp
+﻿  BuildInRenderer.cpp
+  Component.cpp
+  Engine.cpp
+  Game.cpp
+  GameObject.cpp
+  KernmoduleGDev.cpp
+  MemoryManager.cpp
   ParachutePanic.cpp
-  RenderPipeline.cpp
+  Renderer.cpp
+  Scene.cpp
+  SceneManager.cpp
+  ShapeRenderer.cpp
+L:\MyGames\NoEngine\kernmoduleGameDev\KernmoduleGDev\ShapeRenderer.cpp(14,12): warning C4244: 'argument': conversion from 'float' to 'size_t', possible loss of data
+L:\MyGames\NoEngine\kernmoduleGameDev\KernmoduleGDev\ShapeRenderer.cpp(31,84): warning C4305: 'argument': truncation from 'const double' to 'float'
   Generating Code...
-  KernmoduleGDev.vcxproj -> C:\Users\streepmsi\Desktop\Git Projects\KernmoduleGDev\x64\Debug\KernmoduleGDev.exe
+  KernmoduleGDev.vcxproj -> L:\MyGames\NoEngine\kernmoduleGameDev\x64\Debug\KernmoduleGDev.exe

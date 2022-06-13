@@ -52,7 +52,13 @@ Vector3 Vector3::cross(Vector3* other)
 
 sf::Vector2f Vector3::to_SFVector2f()
 {
-	return sf::Vector2f(this->x/this->z,this->y/this->z);
+	if (z > 0) 
+	{
+		return sf::Vector2f(this->x / this->z, this->y / this->z);
+	}
+	else {
+		return sf::Vector2f(this->x, this->y);
+	}
 }
 
 sf::Vector3f Vector3::to_SFVector3f()
