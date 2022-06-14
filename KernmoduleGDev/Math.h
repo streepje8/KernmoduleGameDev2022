@@ -29,6 +29,7 @@ public:
 	static float ASinh(float a);
 	static float ATan2(float a, float b);
 	static float Sqrt(float a);
+	static float MOD(float a, float b);
 	static Vector3 NormalizeAngleVector(Vector3 v);
 	static constexpr double PI = 3.14159265358979323846;
 	static constexpr double TWO_PI = 6.28318530717958647692;

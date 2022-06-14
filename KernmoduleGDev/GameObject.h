@@ -2,6 +2,7 @@
 #include "Component.h"
 #include "List.h"
 #include "Transform.h"
+#include "CommonUtil.h"
 
 class GameObject
 {
@@ -24,11 +25,11 @@ class GameObject
 template <typename T>
 T* GameObject::GetComponentFromObject()
 {
-	for (int i = 0; i < components.count(); i++)
+	for (int i = 0; i < components->count(); i++)
 	{
-		if (typeid(components[i]).name() == typeid(T).name())
+		if (instanceof<T*>(components->get(i)))
 		{
-			return (T*)components[i];
+			return (T*)components->get(i);
 		}
 	}
 }
@@ -36,14 +37,15 @@ T* GameObject::GetComponentFromObject()
 template <typename T>
 List<T*> GameObject::GetComponents()
 {
-	List<T*> components = List<T*>();
-	for (int i = 0; i < components.count(); i++)
+	List<T*> found = List<T*>();
+	for (int i = 0; i < components->count(); i++)
 	{
-		if (typeid(components[i]).name() == typeid(T).name())
+		if (instanceof<T*>(components->get(i)))
 		{
-			components.add((T*)components[i]);
+			T* component = (T*)components->get(i);
+			found.add(component);
 		}
 	}
-	return components;
+	return found;
 }
 

@@ -171,6 +171,7 @@
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="ShapeRenderer.cpp" />
     <ClCompile Include="Stacktracer.cpp" />
+    <ClCompile Include="TestComponent.cpp" />
     <ClCompile Include="Vector3.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -195,6 +196,7 @@
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="ShapeRenderer.h" />
     <ClInclude Include="Stacktracer.h" />
+    <ClInclude Include="TestComponent.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Vector3.h" />
   </ItemGroup>

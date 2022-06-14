@@ -26,5 +26,6 @@ class Quaternion
 		float Angle(Quaternion a, Quaternion b);
 		float Dot(Quaternion* a, Quaternion* b);
 		float Dot(Quaternion a, Quaternion b);
+		Vector3 Euler();
 };
 

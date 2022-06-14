@@ -8,6 +8,7 @@
 #include "ParachutePanic.h"
 #include "Debug.h"
 #include <SFML/Graphics.hpp>
+#include "SceneManager.h"
 
 
 int main()
@@ -31,6 +32,14 @@ int main()
 				}
             }
             game->Update();
+            Scene* s = SceneManager::GetInstance().GetCurrentScene();
+			List<GameObject*>* objects = s->GetObjects();
+            for (int i = 0; i < objects->count(); i++) {
+                List<Component*>* components = objects->get(i)->GetAllComponents();
+                for (int j = 0; j < components->count(); j++) {
+					components->get(j)->Update();
+                }
+            }
             window.clear();
             game->renderer->Render(&window);
             window.display();

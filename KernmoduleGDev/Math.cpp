@@ -141,6 +141,11 @@ float Math::Sqrt(float a)
     return std::pow(a, 0.5f);
 }
 
+float Math::MOD(float a, float b)
+{
+    return std::fmod(a,b);
+}
+
 Vector3 Math::NormalizeAngleVector(Vector3 v)
 {
     return Vector3(std::fmod(v.x, 360), std::fmod(v.y,360), std::fmod(v.z, 360));

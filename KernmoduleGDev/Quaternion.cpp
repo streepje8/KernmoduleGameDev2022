@@ -87,6 +87,11 @@ float Quaternion::Dot(Quaternion a, Quaternion b)
     return Dot(&a, &b);
 }
 
+Vector3 Quaternion::Euler()
+{
+    return Quaternion::ToEulerRad(*this) * Math::RAD_TO_DEG;
+}
+
 Quaternion Quaternion::Identity()
 {
     return Quaternion(0.0f, 0.0f, 0.0f, 1.0f);
@@ -125,7 +130,7 @@ Vector3 Quaternion::ToEulerRad(Quaternion rotation)
 
 Quaternion Quaternion::Euler(float x, float y, float z)
 {
-    return Quaternion::FromEulerRad(Vector3(x,y,z) * Math::DEG_TO_RAD);
+    return Quaternion::FromEulerRad(Math::NormalizeAngleVector(Vector3(x,y,z)) * Math::DEG_TO_RAD);
 }
 
 Quaternion Quaternion::FromEulerRad(Vector3 v)
