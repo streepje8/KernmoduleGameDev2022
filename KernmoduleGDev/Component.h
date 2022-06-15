@@ -1,10 +1,6 @@
 #pragma once
-#include "MemoryManager.h"
+#include "CommonIncludes.h"
 #include "Engine.h"
-#include "EngineHook.h"
-#include <typeinfo>
-#include "Macros.h"
-#include "Transform.h"
 
 class Component
 {

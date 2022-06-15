@@ -1,8 +1,7 @@
 #pragma once
-#include "List.h"
-#include "MemoryManager.h"
-#include <string>
+#include "CommonIncludes.h"
 #include "RenderPipeline.h"
+
 class Game
 {
 	public:

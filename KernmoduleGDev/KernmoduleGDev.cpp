@@ -1,15 +1,5 @@
-#include <iostream>
-#include <string>
-#include "Vector3.h"
-#include "Stacktracer.h"
-#include "Game.h"
-#include "Engine.h"
-#include "MemoryManager.h"
 #include "ParachutePanic.h"
-#include "Debug.h"
-#include <SFML/Graphics.hpp>
-#include "SceneManager.h"
-
+#include "StreepEngine.h"
 
 int main()
 {
@@ -18,8 +8,22 @@ int main()
     sf::RenderWindow window(sf::VideoMode(800, 400), game->windowTitle.c_str());
     #if _DEBUG
         game->Awake();
+        Scene* s = SceneManager::GetInstance().GetCurrentScene();
+        List<GameObject*>* objects = s->GetObjects();
+        for (int i = 0; i < objects->count(); i++) {
+            List<Component*>* components = objects->get(i)->GetAllComponents();
+            for (int j = 0; j < components->count(); j++) {
+                components->get(j)->Start();
+            }
+        }
+        double oldTime = 0;
         while (window.isOpen())
         {
+            double currentTime = clock();
+            Time::GetInstance().time = currentTime / 1000.0f;
+            Time::GetInstance().deltaTime = (currentTime - oldTime) / 1000.0f;
+            Time::GetInstance().FPS = 1.0f / Time::GetInstance().deltaTime; 
+            oldTime = clock();
             sf::Event winEvent;
             while (window.pollEvent(winEvent))
             {

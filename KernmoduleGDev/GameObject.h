@@ -1,8 +1,6 @@
 #pragma once
+#include "CommonIncludes.h"
 #include "Component.h"
-#include "List.h"
-#include "Transform.h"
-#include "CommonUtil.h"
 
 class GameObject
 {

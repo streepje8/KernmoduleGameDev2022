@@ -1,8 +1,8 @@
 #pragma once
 #include <exception>
-#include <string>
-#include "List.h"
 #include <stack>
+#include "CommonIncludes.h"
+
 class Stacktracer
 {
 	private:

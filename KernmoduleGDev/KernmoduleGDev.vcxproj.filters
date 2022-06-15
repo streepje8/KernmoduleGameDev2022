@@ -61,11 +61,14 @@
     <Filter Include="Source Files\Engine\SceneManagement">
       <UniqueIdentifier>{1825e2f0-0545-404d-8bd0-bb560eb3f9f3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Game">
+      <UniqueIdentifier>{4513ffc4-aebe-4f02-9ef7-86c8c33f9394}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game">
+      <UniqueIdentifier>{bfcdef6e-f86b-455c-8819-f82386fc44b0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="KernmoduleGDev.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="List.cpp">
       <Filter>Source Files\Engine\Util</Filter>
     </ClCompile>
@@ -96,9 +99,6 @@
     <ClCompile Include="Game.cpp">
       <Filter>Source Files\Engine\Core</Filter>
     </ClCompile>
-    <ClCompile Include="ParachutePanic.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Debug.cpp">
       <Filter>Source Files\Engine\Util\Debugging</Filter>
     </ClCompile>
@@ -126,8 +126,20 @@
     <ClCompile Include="ShapeRenderer.cpp">
       <Filter>Source Files\Engine\Rendering</Filter>
     </ClCompile>
-    <ClCompile Include="TestComponent.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Time.cpp">
+      <Filter>Source Files\Engine\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerController.cpp">
+      <Filter>Source Files\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="KernmoduleGDev.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="ParachutePanic.cpp">
+      <Filter>Source Files\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>Source Files\Engine\Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -157,9 +169,6 @@
     </ClInclude>
     <ClInclude Include="Matrix4x4.h">
       <Filter>Header Files\Engine\Util\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="ParachutePanic.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Stacktracer.h">
       <Filter>Header Files\Engine\Util\Debugging</Filter>
@@ -200,7 +209,22 @@
     <ClInclude Include="ShapeRenderer.h">
       <Filter>Header Files\Engine\Rendering</Filter>
     </ClInclude>
-    <ClInclude Include="TestComponent.h">
+    <ClInclude Include="Time.h">
+      <Filter>Header Files\Engine\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="ParachutePanic.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerController.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>Header Files\Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="StreepEngine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonIncludes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

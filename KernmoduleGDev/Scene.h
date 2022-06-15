@@ -1,6 +1,7 @@
 #pragma once
-#include "MemoryManager.h"
 #include "GameObject.h"
+#include "CommonIncludes.h"
+
 class Scene {
 private:
 	List<GameObject*>* objects;

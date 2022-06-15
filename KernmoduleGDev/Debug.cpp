@@ -10,6 +10,16 @@ void Debug::Log(std::string message)
     Debug::Log(&message);
 }
 
+void Debug::Log(float message)
+{
+    Debug::Log(std::to_string(message));
+}
+
+void Debug::Log(int message)
+{
+    Debug::Log(std::to_string(message));
+}
+
 void Debug::LogWarning(std::string message)
 {
     Debug::LogWarning(&message);

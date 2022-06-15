@@ -3,6 +3,8 @@
 #include "Quaternion.h"
 #include "Math.h"
 #include "Debug.h"
+#include <string>
+#include <cmath>
 
 Quaternion::Quaternion(float x, float y, float z, float w) : x(x), y(y), z(z), w(w)
 {}
@@ -92,6 +94,21 @@ Vector3 Quaternion::Euler()
     return Quaternion::ToEulerRad(*this) * Math::RAD_TO_DEG;
 }
 
+std::string Quaternion::to_string()
+{
+    std::string str = std::string();
+    str.append("Q${");
+    str.append(std::to_string(this->x));
+    str.append(",");
+    str.append(std::to_string(this->y));
+    str.append(",");
+    str.append(std::to_string(this->z));
+    str.append(",");
+    str.append(std::to_string(this->w));
+    str.append("}");
+    return str;
+}
+
 Quaternion Quaternion::Identity()
 {
     return Quaternion(0.0f, 0.0f, 0.0f, 1.0f);
@@ -99,33 +116,25 @@ Quaternion Quaternion::Identity()
 
 Vector3 Quaternion::ToEulerRad(Quaternion rotation)
 {
-    float sqw = rotation.w * rotation.w;
-    float sqx = rotation.x * rotation.x;
-    float sqy = rotation.y * rotation.y;
-    float sqz = rotation.z * rotation.z;
-    float unit = sqx + sqy + sqz + sqw; // if normalised is one, otherwise is correction factor
-    float test = rotation.x * rotation.w - rotation.y * rotation.z;
-    Vector3 v = Vector3(0.0f,0.0f,0.0f);
+    Vector3 result;
+	
+    // roll (x-axis rotation)
+    double sinr_cosp = 2 * (rotation.w * rotation.x + rotation.y * rotation.z);
+    double cosr_cosp = 1 - 2 * (rotation.x * rotation.x + rotation.y * rotation.y);
+    result.z = Math::ATan2(sinr_cosp, cosr_cosp);
 
-    if (test > 0.4995f * unit)
-    { // singularity at north pole
-        v.y = 2.f * Math::ATan2(rotation.y, rotation.x);
-        v.x = Math::PI / 2.f;
-        v.z = 0;
-        return Math::NormalizeAngleVector(v * Math::RAD_TO_DEG);
-    }
-    if (test < -0.4995f * unit)
-    { // singularity at south pole
-        v.y = -2.f * Math::ATan2(rotation.y, rotation.x);
-        v.x = -Math::PI / 2;
-        v.z = 0;
-        return Math::NormalizeAngleVector(v * Math::RAD_TO_DEG);
-    }
-    Quaternion q = Quaternion(rotation.w, rotation.z, rotation.x, rotation.y);
-    v.y = Math::ATan2(2.f * q.x * q.w + 2.f * q.y * q.z, 1 - 2.f * (q.z * q.z + q.w * q.w));     // Yaw
-    v.x = Math::ASin(2.f * (q.x * q.z - q.w * q.y));                             // Pitch
-    v.z = Math::ATan2(2.f * q.x * q.y + 2.f * q.z * q.w, 1 - 2.f * (q.y * q.y + q.z * q.z));      // Roll
-    return Math::NormalizeAngleVector(v * Math::RAD_TO_DEG);
+    // pitch (y-axis rotation)
+    double sinp = 2 * (rotation.w * rotation.y - rotation.z * rotation.x);
+    if (std::abs(sinp) >= 1)
+        result.y = std::copysign(Math::PI / 2, sinp); // use 90 degrees if out of range
+    else
+        result.y = Math::ASin(sinp);
+
+    // yaw (z-axis rotation)
+    double siny_cosp = 2 * (rotation.w * rotation.z + rotation.x * rotation.y);
+    double cosy_cosp = 1 - 2 * (rotation.y * rotation.y + rotation.z * rotation.z);
+    result.x = Math::ATan2(siny_cosp, cosy_cosp);
+    return Math::NormalizeAngleVector(result * Math::RAD_TO_DEG);
 }
 
 Quaternion Quaternion::Euler(float x, float y, float z)
@@ -135,22 +144,22 @@ Quaternion Quaternion::Euler(float x, float y, float z)
 
 Quaternion Quaternion::FromEulerRad(Vector3 v)
 {
-    float yaw = v.x;
-    float pitch = v.y;
-    float roll = v.z;
-    float rollOver2 = roll * 0.5f;
-    float sinRollOver2 = (float)Math::Sin((float)rollOver2);
-    float cosRollOver2 = (float)Math::Cos((float)rollOver2);
-    float pitchOver2 = pitch * 0.5f;
-    float sinPitchOver2 = (float)Math::Sin((float)pitchOver2);
-    float cosPitchOver2 = (float)Math::Cos((float)pitchOver2);
-    float yawOver2 = yaw * 0.5f;
-    float sinYawOver2 = (float)Math::Sin((float)yawOver2);
-    float cosYawOver2 = (float)Math::Cos((float)yawOver2);
+    float yaw = v.x * 0.5f;
+    float pitch = v.y * 0.5f;
+    float roll = v.z * 0.5f;
+	
+    float sr = (float)Math::Sin((float)roll);
+    float cr = (float)Math::Cos((float)roll);
+
+    float sp = (float)Math::Sin((float)pitch);
+    float cp = (float)Math::Cos((float)pitch);
+	
+    float sy = (float)Math::Sin((float)yaw);
+    float cy = (float)Math::Cos((float)yaw);
     Quaternion result;
-    result.x = cosYawOver2 * cosPitchOver2 * cosRollOver2 + sinYawOver2 * sinPitchOver2 * sinRollOver2;
-    result.y = cosYawOver2 * cosPitchOver2 * sinRollOver2 - sinYawOver2 * sinPitchOver2 * cosRollOver2;
-    result.z = cosYawOver2 * sinPitchOver2 * cosRollOver2 + sinYawOver2 * cosPitchOver2 * sinRollOver2;
-    result.w = sinYawOver2 * cosPitchOver2 * cosRollOver2 - cosYawOver2 * sinPitchOver2 * sinRollOver2;
+    result.w = cr * cp * cy + sr * sp * sy;
+    result.x = sr * cp * cy - cr * sp * sy;
+    result.y = cr * sp * cy + sr * cp * sy;
+    result.z = cr * cp * sy - sr * sp * cy;
     return result;
 }

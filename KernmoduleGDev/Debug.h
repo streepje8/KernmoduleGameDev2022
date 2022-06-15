@@ -4,6 +4,8 @@ class Debug
 {
 public:
 	static void Log(std::string message);
+	static void Log(float message);
+	static void Log(int message);
 	static void LogWarning(std::string message);
 	static void LogError(std::string message);
 	static void Log(std::string* message);

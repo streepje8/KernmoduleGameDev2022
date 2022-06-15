@@ -27,5 +27,6 @@ class Quaternion
 		float Dot(Quaternion* a, Quaternion* b);
 		float Dot(Quaternion a, Quaternion b);
 		Vector3 Euler();
+		std::string to_string();
 };
 

@@ -1,6 +1,6 @@
 #pragma once
-#include <string>
-#include "Enginehook.h"
+#include "CommonIncludes.h"
+
 class Engine
 {
 	public:
