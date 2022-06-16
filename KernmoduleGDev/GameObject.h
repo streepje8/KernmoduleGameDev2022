@@ -2,7 +2,7 @@
 #include "CommonIncludes.h"
 #include "Component.h"
 
-class GameObject
+class GameObject : public MemoryStorable
 {
 	private:
 		List<Component*>* components;
@@ -14,10 +14,14 @@ class GameObject
 		List<Component*>* GetAllComponents() {
 			return components;
 		}
+		Component* AddComponentAndManage(Component* c);
 		Component* AddComponent(Component* c);
 		Transform* transform;
 		GameObject();
-		~GameObject();
+		virtual ~GameObject()
+		{
+			MemoryManager::GetInstance().CleanOwner(this);
+		}
 };
 
 template <typename T>
@@ -25,11 +29,11 @@ T* GameObject::GetComponentFromObject()
 {
 	for (int i = 0; i < components->count(); i++)
 	{
-		if (instanceof<T*>(components->get(i)))
-		{
-			return (T*)components->get(i);
-		}
+		T* componentpointer = dynamic_cast<T*>(components->get(i));
+		if(componentpointer != nullptr)
+			return componentpointer;
 	}
+	return nullptr;
 }
 
 template <typename T>

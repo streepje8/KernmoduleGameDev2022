@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics/RenderWindow.hpp>
-class RenderPipeline
+#include "CommonIncludes.h"
+class RenderPipeline : public MemoryStorable
 {
 	public:
 		virtual void Render(sf::RenderWindow* win) {};

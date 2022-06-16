@@ -26,4 +26,5 @@
 #include <iostream>
 #include <string>
 #include <typeinfo>
-
+#include "SpriteRenderer.h"
+#include "BoxCollider2D.h"

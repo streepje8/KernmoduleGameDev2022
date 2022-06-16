@@ -9,16 +9,16 @@ ShapeRenderer::ShapeRenderer(ShapeType type, Vector3 size)
 	switch (type)
 	{
 		case ShapeRenderer::CIRCLE:
-			shape = OCVAR(sf::CircleShape, new sf::CircleShape(size.x, size.y));
+			shape = VAR(sf::CircleShape, new sf::CircleShape(size.x, size.y));
 			break;
 		case ShapeRenderer::RECTANGLE:
-			shape = OCVAR(sf::RectangleShape, new sf::RectangleShape(size.to_SFVector2f()));
+			shape = VAR(sf::RectangleShape, new sf::RectangleShape(size.to_SFVector2f()));
 			break;
 		case ShapeRenderer::TRIANGLE:
-			shape = OCVAR(sf::CircleShape, new sf::CircleShape(size.x, 3));
+			shape = VAR(sf::CircleShape, new sf::CircleShape(size.x, 3));
 			break;
 		default:
-			shape = OCVAR(sf::CircleShape, new sf::CircleShape(size.x,5));
+			shape = VAR(sf::CircleShape, new sf::CircleShape(size.x,5));
 			break;
 	}
 	shape->setOrigin(sf::Vector2f(size.x, size.y));

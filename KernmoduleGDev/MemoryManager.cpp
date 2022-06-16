@@ -37,12 +37,12 @@ void MemoryManager::CleanScope(int scope)
 	if (lookupTable.count(scope)) {
 		lookupTable[scope]->Discard();
 		delete lookupTable[scope];
+		lookupTable[scope] = nullptr;
 	}
 }
 
 void MemoryManager::CleanOwner(void* owner)
 {
-	if (lookupTableOwned.count(owner)) {
-		lookupTableOwned[owner]->Discard();
-	}
+	if(lookupTableOwned.count(pointer_to_string(owner)))
+		lookupTableOwned[pointer_to_string(owner)]->Discard();
 }

@@ -2,7 +2,7 @@
 
 Scene::Scene()
 {
-	objects = (List<GameObject*>*)MemoryManager::GetInstance().AllocateOwned(List<GameObject*>(), this)->pointer;
+	objects = OCVAR(List<GameObject*>, new List<GameObject*>());
 }
 
 void Scene::Instantiate(GameObject* go)

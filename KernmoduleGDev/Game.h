@@ -1,8 +1,10 @@
 #pragma once
 #include "CommonIncludes.h"
+#include "Debug.h"
+#include "SceneManager.h"
 #include "RenderPipeline.h"
 
-class Game
+class Game : public MemoryStorable
 {
 	public:
 		std::string name;
@@ -16,7 +18,8 @@ class Game
 		virtual void Render() {};
 		virtual void Stop() {};
 		Game();
-		~Game() {
+		virtual ~Game()
+		{
 			MemoryManager::GetInstance().CleanOwner(this);
 		}
 };

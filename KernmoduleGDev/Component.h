@@ -2,7 +2,7 @@
 #include "CommonIncludes.h"
 #include "Engine.h"
 
-class Component
+class Component : public MemoryStorable
 {
 	private:
 		
@@ -16,6 +16,7 @@ class Component
 		{
 			return gameObject->GetComponentFromObject();
 		};
+
 		virtual void Awake() {
 			FUNCBEGIN(Awake);
 		};
@@ -25,14 +26,20 @@ class Component
 		virtual void Update() {
 			FUNCBEGIN(Update);
 		};
+
+		virtual void OnCollision() {
+			FUNCBEGIN(OnCollision);
+		};		
+		
 		virtual void OnDestroy() {
 			FUNCBEGIN(OnDestroy);
 		};
 		virtual void OnApplicationQuit() {
 			FUNCBEGIN(OnApplicationQuit);
 		};
-		
-		~Component() {
+
+		virtual ~Component()
+		{
 			MemoryManager::GetInstance().CleanOwner(this);
 		}
 };

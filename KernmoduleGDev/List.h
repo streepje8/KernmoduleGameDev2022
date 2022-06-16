@@ -1,7 +1,8 @@
 #pragma once
+#include "MemoryStorable.h"
 #include <string>
 template <typename T>
-class List
+class List : public MemoryStorable
 {
 	private:
 		T* data;
@@ -16,7 +17,7 @@ public:
 		}
 		else { data = nullptr; }
 	}
-	~List() {
+	virtual ~List() {
 		size = 0;
 		delete[] data;
 	}

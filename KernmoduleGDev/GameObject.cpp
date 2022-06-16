@@ -1,6 +1,11 @@
 #include "GameObject.h"
 #include <typeinfo>
 #include "MemoryManager.h"
+Component* GameObject::AddComponentAndManage(Component* c)
+{
+	this->AddComponent((Component*)MemoryManager::GetInstance().AllocateOwned(c,this)->pointer);
+	return c;
+}
 Component* GameObject::AddComponent(Component* c)
 {
 	c->gameObject = this;
@@ -23,11 +28,6 @@ Component* GameObject::AddComponent(Component* c)
 
 GameObject::GameObject()
 {
-	components = (List<Component*>*)MemoryManager::GetInstance().AllocateOwned(List<Component*>(), this)->pointer;
-	transform = (Transform*)MemoryManager::GetInstance().AllocateOwned(Transform(), this)->pointer;
-}
-
-GameObject::~GameObject()
-{
-	MemoryManager::GetInstance().CleanOwner(this);
+	components = OCVAR(List<Component*>,new List<Component*>());
+	transform = OCVAR(Transform,new Transform());
 }
