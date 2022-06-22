@@ -67,12 +67,6 @@
     <Filter Include="Header Files\Game">
       <UniqueIdentifier>{bfcdef6e-f86b-455c-8819-f82386fc44b0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Engine\Collision">
-      <UniqueIdentifier>{e6cb9328-49f4-4d33-afcb-e7ca0da1c55d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Engine\Collision">
-      <UniqueIdentifier>{d9e800b8-a567-4e57-89b9-7b3c37a03e5f}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="List.cpp">
@@ -132,7 +126,7 @@
     <ClCompile Include="ShapeRenderer.cpp">
       <Filter>Source Files\Engine\Rendering</Filter>
     </ClCompile>
-    <ClCompile Include="Time.cpp">
+    <ClCompile Include="TimeManager.cpp">
       <Filter>Source Files\Engine\Util</Filter>
     </ClCompile>
     <ClCompile Include="PlayerController.cpp">
@@ -154,6 +148,12 @@
       <Filter>Source Files\Engine\Rendering</Filter>
     </ClCompile>
     <ClCompile Include="BoxCollider2D.cpp">
+      <Filter>Source Files\Engine\DefaultComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="BoxCollider3D.cpp">
+      <Filter>Source Files\Engine\DefaultComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="Rigidbody2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -224,7 +224,7 @@
     <ClInclude Include="ShapeRenderer.h">
       <Filter>Header Files\Engine\Rendering</Filter>
     </ClInclude>
-    <ClInclude Include="Time.h">
+    <ClInclude Include="TimeManager.h">
       <Filter>Header Files\Engine\Util</Filter>
     </ClInclude>
     <ClInclude Include="ParachutePanic.h">
@@ -248,13 +248,19 @@
     <ClInclude Include="Sprite.h">
       <Filter>Header Files\Engine\Rendering</Filter>
     </ClInclude>
-    <ClInclude Include="BoxCollider2D.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="MemoryStorable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="StorableWrapper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BoxCollider2D.h">
+      <Filter>Header Files\Engine\DefaultComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="BoxCollider3D.h">
+      <Filter>Header Files\Engine\DefaultComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="Rigidbody2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

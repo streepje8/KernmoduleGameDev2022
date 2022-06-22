@@ -1,8 +1,8 @@
 #pragma once
-class Time
+class TimeManager
 {
 public:
-	static Time& GetInstance();
+	static TimeManager& GetInstance();
 	float deltaTime;
 	float time;
 	float FPS;

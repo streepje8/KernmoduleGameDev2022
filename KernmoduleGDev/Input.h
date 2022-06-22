@@ -1,8 +1,6 @@
 #pragma once
 #include <SFML/Window/Keyboard.hpp>
 #include "CommonIncludes.h"
-#define KeyCode sf::Keyboard::Key
-#define Input InputManager::GetInstance()
 
 class InputManager
 {

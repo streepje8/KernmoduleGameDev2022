@@ -28,3 +28,5 @@
 #include <typeinfo>
 #include "SpriteRenderer.h"
 #include "BoxCollider2D.h"
+#include "BoxCollider3D.h"
+#include "Rigidbody2D.h"

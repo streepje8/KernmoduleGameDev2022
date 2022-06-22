@@ -19,9 +19,9 @@ int main()
     while (window.isOpen())
     {
         double currentTime = clock();
-        Time::GetInstance().time = currentTime / 1000.0f;
-        Time::GetInstance().deltaTime = (currentTime - oldTime) / 1000.0f;
-        Time::GetInstance().FPS = 1.0f / Time::GetInstance().deltaTime; 
+        Time.time = currentTime / 1000.0f;
+        Time.deltaTime = (currentTime - oldTime) / 1000.0f;
+        Time.FPS = 1.0f / Time.deltaTime; 
         oldTime = clock();
         sf::Event winEvent;
         while (window.pollEvent(winEvent))

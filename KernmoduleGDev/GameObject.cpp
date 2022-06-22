@@ -28,6 +28,6 @@ Component* GameObject::AddComponent(Component* c)
 
 GameObject::GameObject()
 {
-	components = OCVAR(List<Component*>,new List<Component*>());
-	transform = OCVAR(Transform,new Transform());
+	components = (List<Component*>*)MemoryManager::GetInstance().AllocateOwned(new List<Component*>(), this)->pointer;
+	transform = (Transform*)MemoryManager::GetInstance().AllocateOwned(new Transform(), this)->pointer;
 }

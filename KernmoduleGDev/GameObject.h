@@ -1,5 +1,8 @@
 #pragma once
-#include "CommonIncludes.h"
+#include "List.h"
+#include "Transform.h"
+#include "MemoryManager.h"
+#include "MemoryStorable.h"
 #include "Component.h"
 
 class GameObject : public MemoryStorable

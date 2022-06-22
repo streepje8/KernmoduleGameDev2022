@@ -1,5 +1,6 @@
 #pragma once
-#include "CommonIncludes.h"
+#include <string>
+#include <typeinfo>
 
 class Engine
 {
