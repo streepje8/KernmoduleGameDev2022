@@ -21,6 +21,11 @@ void TextRenderer::SetText(std::string text)
 	this->text->setString(text);
 }
 
+void TextRenderer::SetColor(sf::Color color)
+{
+	text->setFillColor(color);
+}
+
 void TextRenderer::Render(sf::RenderWindow* win)
 {
 	text->setCharacterSize(fontSize);

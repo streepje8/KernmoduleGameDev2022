@@ -13,6 +13,7 @@ class TextRenderer :
         bool isItalic;
         TextRenderer(std::string fontPath);
         void SetText(std::string text);
+        void SetColor(sf::Color color);
         void Render(sf::RenderWindow* win) override;
 };
 

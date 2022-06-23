@@ -1,10 +1,17 @@
 #pragma once
 #include "StreepEngine.h"
+#include "ScoreDisplay.h"
 class ParachutePanic :
     public Game
 {
     public:
-        void Setup();
-        void Awake();
+        ScoreDisplay* scoreDisplay;
+        bool inGame;
+        void Setup() override;
+        void Awake() override;
+        void Update() override;
+        void CreateAndOpenLossScene();
+        void CreateAndOpenWinScene();
+        void CreateAndOpenGameScene();
 };
 

@@ -8,6 +8,74 @@ void ParachutePanic::Setup() {
 	FUNCBEGIN(Setup);
 	this->name = "Parachute Panic";
 	this->windowTitle = "Parachute Panic Game";
+	CreateAndOpenGameScene();
+	inGame = true;
+}
+
+void ParachutePanic::Awake() {
+	FUNCBEGIN(Awake);
+}
+
+void ParachutePanic::Update()
+{
+	if (inGame) {
+		if (scoreDisplay->lives < 5) {
+			CreateAndOpenLossScene();
+			inGame = false;
+		}
+		if (scoreDisplay->coinsCollected > 19) {
+			CreateAndOpenWinScene();
+			inGame = false;
+		}
+	}
+}
+
+void ParachutePanic::CreateAndOpenLossScene() {
+	Scene* lossScene = NVAR(Scene);
+
+	//Make win text
+	auto losstxt = OICVAR(GameObject, new GameObject(), lossScene);
+
+	//Add components
+	auto textRend = new TextRenderer(".\\GameAssets\\fonts\\BebasNeue-Regular.ttf");
+	losstxt->AddComponentAndManage(textRend);
+
+	//Setup variable values
+	losstxt->transform->position = Vector3(45, 30, 0);
+	losstxt->transform->scale = Vector3(0.25, 0.25, 1);
+	textRend->SetText("You Lost!");
+	textRend->SetColor(sf::Color(255, 0, 0, 255));
+	textRend->fontSize = 400;
+	textRend->isBold = true;
+	lossScene->Instantiate(losstxt);
+
+	SceneManager::GetInstance().OpenScene(lossScene);
+}
+
+void ParachutePanic::CreateAndOpenWinScene() {
+	Scene* winScene = NVAR(Scene);
+
+	//Make win text
+	auto wintxt = OICVAR(GameObject, new GameObject(), winScene);
+
+	//Add components
+	auto textRend = new TextRenderer(".\\GameAssets\\fonts\\BebasNeue-Regular.ttf");
+	wintxt->AddComponentAndManage(textRend);
+
+	//Setup variable values
+	wintxt->transform->position = Vector3(45, 30, 0);
+	wintxt->transform->scale = Vector3(0.25, 0.25, 1);
+	textRend->SetText("You won!");
+	textRend->SetColor(sf::Color(0,255,0,255));
+	textRend->fontSize = 400;
+	textRend->isBold = true;
+	winScene->Instantiate(wintxt);
+
+	SceneManager::GetInstance().OpenScene(winScene);
+}
+
+
+void ParachutePanic::CreateAndOpenGameScene() {
 	Scene* gameScene = NVAR(Scene);
 
 	//Make background
@@ -18,7 +86,7 @@ void ParachutePanic::Setup() {
 
 	//Setup variable values
 	background->transform->position = Vector3(0, 0, 0);
-	background->transform->scale = Vector3(800.0f/1920.0f, 400.0f/1080.0f, 1);
+	background->transform->scale = Vector3(800.0f / 1920.0f, 400.0f / 1080.0f, 1);
 	gameScene->Instantiate(background);
 
 	//Make player
@@ -33,22 +101,22 @@ void ParachutePanic::Setup() {
 
 	//Setup variable values
 	player->transform->position = Vector3(0, -160, 0);
-	player->transform->scale = Vector3(0.4,0.4,1);
+	player->transform->scale = Vector3(0.4, 0.4, 1);
 	boxcol->width = 149;
 	boxcol->height = 215;
 	player->GetComponentFromObject<Rigidbody2D>()->useGravity = false;
 	gameScene->Instantiate(player);
 
 	//Make score display component since the coin requires it
-	auto scoredisplay = new ScoreDisplay();
+	scoreDisplay = new ScoreDisplay();
 
 	//Make coin
 	auto coin = OICVAR(GameObject, new GameObject(), gameScene);
-	
+
 	//Add components
 	coin->AddComponentAndManage(new SpriteRenderer(".\\GameAssets\\sprites\\coin.png"));
 	coin->AddComponentAndManage(new Rigidbody2D());
-	coin->AddComponentAndManage(new CoinController(scoredisplay));
+	coin->AddComponentAndManage(new CoinController(scoreDisplay));
 	auto cboxcol = new BoxCollider2D();
 	coin->AddComponentAndManage(cboxcol);
 
@@ -66,7 +134,7 @@ void ParachutePanic::Setup() {
 	//Add components
 	auto textRend = new TextRenderer(".\\GameAssets\\fonts\\BebasNeue-Regular.ttf");
 	scoredisp->AddComponentAndManage(textRend);
-	scoredisp->AddComponentAndManage(scoredisplay);
+	scoredisp->AddComponentAndManage(scoreDisplay);
 
 	//Setup variable values
 	scoredisp->transform->position = Vector3(100, 200, 0);
@@ -77,9 +145,4 @@ void ParachutePanic::Setup() {
 	gameScene->Instantiate(scoredisp);
 
 	SceneManager::GetInstance().OpenScene(gameScene);
-}
-
-void ParachutePanic::Awake() {
-	FUNCBEGIN(Awake);
-
 }
