@@ -20,12 +20,15 @@ class Vector3
 		Vector3 operator-=(Vector3 v);
 		Vector3 operator^(int v);
 		Vector3 operator*(float v);
+		Vector3 operator*=(float v);
 		Vector3 operator/(float v);
+		Vector3 operator/=(float v);
 		float magnitude();
 		float dot(Vector3* other);
 		Vector3 cross(Vector3* other);
 		Vector3 Reflect(Vector3* inNormal);
 		Vector3 normalize();
+		Vector3 clamp(Vector3* minValues, Vector3* maxValues);
 		sf::Vector2f to_SFVector2f();
 		sf::Vector2f to_SFVector2f_dropZ();
 		sf::Vector3f to_SFVector3f();

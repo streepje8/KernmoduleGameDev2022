@@ -141,6 +141,40 @@ float Math::Sqrt(float a)
     return std::pow(a, 0.5f);
 }
 
+float Math::Sig(float a)
+{
+    return 1 / (1 + std::pow(Math::E, -a));
+}
+
+float Math::Rand(float min, float max)
+{
+    float x = std::rand() / 32767.0f; //random number between 0 and 1
+    return (max - min) * x + min;
+}
+
+int Math::Sign(float a)
+{
+    if (a < 0) {
+        return -1;
+    }
+    return 1;
+}
+
+Vector3 Math::LerpVector3(Vector3 a, Vector3 b, float t)
+{
+    return Math::LerpVector3(&a,&b,t);
+}
+
+Vector3 Math::LerpVector3(Vector3* a, Vector3* b, float t)
+{
+    return Vector3(Math::Lerp(a->x,b->x,t), Math::Lerp(a->y, b->y, t), Math::Lerp(a->z, b->z, t));
+}
+
+Vector3 Math::Sqrt(Vector3 a)
+{
+    return Vector3(Math::Sqrt(a.x), Math::Sqrt(a.y), Math::Sqrt(a.z));
+}
+
 float Math::MOD(float a, float b)
 {
     return std::fmod(a,b);

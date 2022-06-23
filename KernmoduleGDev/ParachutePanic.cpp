@@ -1,12 +1,25 @@
 #include "ParachutePanic.h"
-#include "PlayerController.h"
 #include "StreepEngine.h"
+
+#include "PlayerController.h"
+#include "CoinController.h"
 
 void ParachutePanic::Setup() {
 	FUNCBEGIN(Setup);
 	this->name = "Parachute Panic";
 	this->windowTitle = "Parachute Panic Game";
 	Scene* gameScene = NVAR(Scene);
+
+	//Make background
+	auto background = OICVAR(GameObject, new GameObject(), gameScene);
+
+	//Add components
+	background->AddComponentAndManage(new SpriteRenderer(".\\GameAssets\\sprites\\background.png"));
+
+	//Setup variable values
+	background->transform->position = Vector3(0, 0, 0);
+	background->transform->scale = Vector3(800.0f/1920.0f, 400.0f/1080.0f, 1);
+	gameScene->Instantiate(background);
 
 	//Make player
 	auto player = OICVAR(GameObject, new GameObject(), gameScene);
@@ -26,22 +39,42 @@ void ParachutePanic::Setup() {
 	player->GetComponentFromObject<Rigidbody2D>()->useGravity = false;
 	gameScene->Instantiate(player);
 
-	//Make enemy
-	auto enemy = OICVAR(GameObject, new GameObject(), gameScene);
+	//Make score display component since the coin requires it
+	auto scoredisplay = new ScoreDisplay();
+
+	//Make coin
+	auto coin = OICVAR(GameObject, new GameObject(), gameScene);
 	
 	//Add components
-	enemy->AddComponentAndManage(new SpriteRenderer(".\\GameAssets\\sprites\\enemy.png"));
-	enemy->AddComponentAndManage(new Rigidbody2D());
-	auto eboxcol = new BoxCollider2D();
-	enemy->AddComponentAndManage(eboxcol);
+	coin->AddComponentAndManage(new SpriteRenderer(".\\GameAssets\\sprites\\coin.png"));
+	coin->AddComponentAndManage(new Rigidbody2D());
+	coin->AddComponentAndManage(new CoinController(scoredisplay));
+	auto cboxcol = new BoxCollider2D();
+	coin->AddComponentAndManage(cboxcol);
 
 	//Setup variable values
-	enemy->transform->position = Vector3(0, 100, 0);
-	enemy->transform->scale = Vector3(0.3, 0.3, 1);
-	eboxcol->width = 10;
-	eboxcol->height = 10;
-	enemy->GetComponentFromObject<Rigidbody2D>()->mass = 20;
-	gameScene->Instantiate(enemy);
+	coin->transform->position = Vector3(0, 100, 0);
+	coin->transform->scale = Vector3(0.1, 0.1, 1);
+	cboxcol->width = 512;
+	cboxcol->height = 512;
+	coin->GetComponentFromObject<Rigidbody2D>()->useGravity = false;
+	gameScene->Instantiate(coin);
+
+	//Make Score display
+	auto scoredisp = OICVAR(GameObject, new GameObject(), gameScene);
+
+	//Add components
+	auto textRend = new TextRenderer(".\\GameAssets\\fonts\\BebasNeue-Regular.ttf");
+	scoredisp->AddComponentAndManage(textRend);
+	scoredisp->AddComponentAndManage(scoredisplay);
+
+	//Setup variable values
+	scoredisp->transform->position = Vector3(100, 200, 0);
+	scoredisp->transform->scale = Vector3(0.25, 0.25, 1);
+	textRend->SetText("loading...");
+	textRend->fontSize = 200;
+	textRend->isUnderlined = true;
+	gameScene->Instantiate(scoredisp);
 
 	SceneManager::GetInstance().OpenScene(gameScene);
 }

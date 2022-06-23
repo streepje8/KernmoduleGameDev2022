@@ -18,6 +18,7 @@ class Quaternion
 		static Vector3 ToEulerRad(Quaternion rotation);
 		static Quaternion Euler(float x, float y, float z);
 		Quaternion operator*(Quaternion q);
+		Quaternion operator*=(Quaternion q);
 		Vector3 operator*(Vector3 v);
 		bool operator==(Quaternion q);
 		bool IsEqualUsingDot(float dot);

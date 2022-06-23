@@ -154,6 +154,7 @@
     <ClCompile Include="BoxCollider2D.cpp" />
     <ClCompile Include="BoxCollider3D.cpp" />
     <ClCompile Include="BuildInRenderer.cpp" />
+    <ClCompile Include="CoinController.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Debug.cpp" />
     <ClCompile Include="Engine.cpp" />
@@ -173,11 +174,13 @@
     <ClCompile Include="Rigidbody2D.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="ScoreDisplay.cpp" />
     <ClCompile Include="ShapeRenderer.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="SpriteRenderer.cpp" />
     <ClCompile Include="Stacktracer.cpp" />
     <ClCompile Include="PlayerController.cpp" />
+    <ClCompile Include="TextRenderer.cpp" />
     <ClCompile Include="TimeManager.cpp" />
     <ClCompile Include="Vector3.cpp" />
   </ItemGroup>
@@ -185,6 +188,7 @@
     <ClInclude Include="BoxCollider2D.h" />
     <ClInclude Include="BoxCollider3D.h" />
     <ClInclude Include="BuildInRenderer.h" />
+    <ClInclude Include="CoinController.h" />
     <ClInclude Include="CommonIncludes.h" />
     <ClInclude Include="CommonUtil.h" />
     <ClInclude Include="Component.h" />
@@ -207,6 +211,7 @@
     <ClInclude Include="Rigidbody2D.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="ScoreDisplay.h" />
     <ClInclude Include="ShapeRenderer.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="SpriteRenderer.h" />
@@ -214,6 +219,7 @@
     <ClInclude Include="PlayerController.h" />
     <ClInclude Include="StorableWrapper.h" />
     <ClInclude Include="StreepEngine.h" />
+    <ClInclude Include="TextRenderer.h" />
     <ClInclude Include="TimeManager.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Vector3.h" />

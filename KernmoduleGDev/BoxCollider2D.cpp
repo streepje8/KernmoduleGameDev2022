@@ -9,7 +9,7 @@ void BoxCollider2D::Update()
 	for (int i = 0; i < objects->count(); i++) {
 		GameObject* obj = objects->get(i);
 		BoxCollider2D* collider = obj->GetComponentFromObject<BoxCollider2D>();
-		if (collider != this) { //No self collisions
+		if (collider != this && collider != nullptr) { //No self collisions or collisions with object without a collider
 			bool isColliding = true;
 			//AABB collision
 			if (!((obj->transform->position.x - (collider->width * transform->scale.x) / 2) <= transform->position.x + (width * transform->scale.x) && (obj->transform->position.x + (collider->width * transform->scale.x) / 2) >= transform->position.x - (width * transform->scale.x))) isColliding = false;

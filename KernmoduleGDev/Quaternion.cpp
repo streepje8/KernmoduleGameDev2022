@@ -26,6 +26,15 @@ Quaternion Quaternion::operator*(Quaternion q)
         this->w * q.w - this->x * q.x - this->y * q.y - this->z * q.z);
 }
 
+Quaternion Quaternion::operator*=(Quaternion q)
+{
+    return Quaternion(
+        this->w * q.x + this->x * q.w + this->y * q.z - this->z * q.y,
+        this->w * q.y + this->y * q.w + this->z * q.x - this->x * q.z,
+        this->w * q.z + this->z * q.w + this->x * q.y - this->y * q.x,
+        this->w * q.w - this->x * q.x - this->y * q.y - this->z * q.z);
+}
+
 Vector3 Quaternion::operator*(Vector3 v)
 {
     float x = this->x * 2.f;

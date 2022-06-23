@@ -74,7 +74,17 @@ Vector3 Vector3::operator*(float v)
 	return Vector3(x * v, y * v, z * v);
 }
 
+Vector3 Vector3::operator*=(float v)
+{
+	return Vector3(x * v, y * v, z * v);
+}
+
 Vector3 Vector3::operator/(float v)
+{
+	return Vector3(x / v, y / v, z / v);
+}
+
+Vector3 Vector3::operator/=(float v)
 {
 	return Vector3(x / v, y / v, z / v);
 }
@@ -109,6 +119,11 @@ Vector3 Vector3::Reflect(Vector3* inNormal)
 
 Vector3 Vector3::normalize() {
 	return *this / Math::Clamp(this->magnitude(),Math::Epsilon,99999999);
+}
+
+Vector3 Vector3::clamp(Vector3* minValues, Vector3* maxValues)
+{
+	return Vector3(Math::Clamp(x,minValues->x,maxValues->x), Math::Clamp(y, minValues->y, maxValues->y), Math::Clamp(z, minValues->z, maxValues->z));
 }
 
 sf::Vector2f Vector3::to_SFVector2f()

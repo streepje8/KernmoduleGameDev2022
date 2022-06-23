@@ -20,6 +20,16 @@ void Debug::Log(int message)
     Debug::Log(std::to_string(message));
 }
 
+void Debug::Log(Vector3& message)
+{
+    Debug::Log(message.to_string());
+}
+
+void Debug::Log(Vector3* message)
+{
+    Debug::Log(message->to_string());
+}
+
 void Debug::LogWarning(std::string message)
 {
     Debug::LogWarning(&message);

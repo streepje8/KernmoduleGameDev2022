@@ -3,11 +3,11 @@
 class PlayerController :
     public Component
 {
+	private:
+		int direction;
 	public:
 		Rigidbody2D* rb;
 		void Start() override;
-		void Update() override;
-		void OnCollision() override;
-	
+		void Update() override;	
 };
 
