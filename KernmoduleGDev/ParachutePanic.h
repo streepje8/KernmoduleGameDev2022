@@ -10,6 +10,7 @@ class ParachutePanic :
         void Setup() override;
         void Awake() override;
         void Update() override;
+        void Stop() override;
         void CreateAndOpenLossScene();
         void CreateAndOpenWinScene();
         void CreateAndOpenGameScene();

@@ -17,9 +17,10 @@ void CoinController::Update()
 	}
 
 	rb->AddForce(Vector3(direction * 30.0f,-fallSpeed, 0) * Time.deltaTime);
-	if (transform->position.y < -420) {
+	if (transform->position.y < -410) {
 		transform->position = Vector3(Math::Rand(-380, 380), 420, 0);
 		transform->rotation = Quaternion::Euler(0, 0, 0);
+		Debug::Log("[x-x] <(Ouch, i missed one!)");
 		sdp->lives--;
 	}
 	Vector3 newPos = transform->position + (*(rb->velocity) * Time.deltaTime * rb->pixelsPerMetre);
@@ -33,4 +34,5 @@ void CoinController::OnCollision()
 	transform->position = Vector3(Math::Rand(-380, 380),420,0);
 	transform->rotation = Quaternion::Euler(0, 0, 0);
 	sdp->coinsCollected++;
+	Debug::Log("$$$ [0-0] <(Cha ching!)");
 }

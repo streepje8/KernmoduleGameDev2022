@@ -1,4 +1,4 @@
-#include "ParachutePanic.h"
+﻿#include "ParachutePanic.h"
 #include "StreepEngine.h"
 
 #include "PlayerController.h"
@@ -6,8 +6,20 @@
 
 void ParachutePanic::Setup() {
 	FUNCBEGIN(Setup);
-	this->name = "Parachute Panic";
-	this->windowTitle = "Parachute Panic Game";
+	this->name = "Cashbot";
+	this->windowTitle = "Cashbot - Become the richest robot in the world!";
+	Debug::Log("\n   _____           _____ _    _ ____   ____ _______ \n"
+"  / ____|   /\\    / ____| |  | |  _ \\ / __ \\__   __|\n"
+" | |       /  \\  | (___ | |__| | |_) | |  | | | |   \n"
+" | |      / /\\ \\  \\___ \\|  __  |  _ <| |  | | | |   \n"
+" | |____ / ____ \\ ____) | |  | | |_) | |__| | | |   \n"
+"  \\_____/_/    \\_\\_____/|_|  |_|____/ \\____/  |_|   \n"
+"                                                   ");
+	Debug::Log("=====================================================================================");
+	Debug::Log("Cashbot, build on top of sfml. All other code is written by streepje8 (aka wessel)");
+	Debug::Log("All art was kindly provided by hierisluuk (aka luuk), my friend");
+	Debug::Log("The font was taken from Google fonts and uses an Open font license.");
+	Debug::Log("=====================================================================================");
 	CreateAndOpenGameScene();
 	inGame = true;
 }
@@ -19,15 +31,22 @@ void ParachutePanic::Awake() {
 void ParachutePanic::Update()
 {
 	if (inGame) {
-		if (scoreDisplay->lives < 5) {
+		if (scoreDisplay->lives < 1) {
+			Debug::Log("[o-o] <(Ah man! Better luck next time!)");
 			CreateAndOpenLossScene();
 			inGame = false;
 		}
 		if (scoreDisplay->coinsCollected > 19) {
+			Debug::Log("[^_^] <(This is the best day of my life!)");
 			CreateAndOpenWinScene();
 			inGame = false;
 		}
 	}
+}
+
+void ParachutePanic::Stop()
+{
+	Debug::Log("See you next time!");
 }
 
 void ParachutePanic::CreateAndOpenLossScene() {
