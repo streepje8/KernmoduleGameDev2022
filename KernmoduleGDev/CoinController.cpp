@@ -36,7 +36,6 @@ void CoinController::Update()
 
 void CoinController::OnCollision()
 {
-	//Old code just recycles the active code, new code has to spawn a new one for the assignment
 	if (col->lastCollidedWith->name == "player") {
 		transform->position = Vector3(Math::Rand(-380, 380), 450, 0);
 		transform->rotation = Quaternion::Euler(0, 0, 0);

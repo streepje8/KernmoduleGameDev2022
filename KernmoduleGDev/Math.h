@@ -6,7 +6,7 @@ public:
 	static float DegToRad(float degrees);
 	static float RadToDeg(float radians);
 	static float Clamp(float value, float min, float max);
-	float Clamp01(float value);
+	static float Clamp01(float value);
 	static float Lerp(float start, float end, float t);
 	static float InverseLerp(float start, float end, float value);
 	static float Smoothstep(float start, float end, float t);
@@ -32,11 +32,13 @@ public:
 	static float Sig(float a);
 	static float Rand(float min, float max);
 	static int Sign(float a);
+	static float MOD(float a, float b);
+
 	static Vector3 LerpVector3(Vector3 a, Vector3 b, float t);
 	static Vector3 LerpVector3(Vector3* a, Vector3* b, float t);
 	static Vector3 Sqrt(Vector3 a);
-	static float MOD(float a, float b);
 	static Vector3 NormalizeAngleVector(Vector3 v);
+
 	static constexpr double PI = 3.14159265358979323846;
 	static constexpr double TWO_PI = 6.28318530717958647692;
 	static constexpr double RAD_TO_DEG = 57.2957795131;

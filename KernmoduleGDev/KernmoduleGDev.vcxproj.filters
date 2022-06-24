@@ -163,7 +163,7 @@
       <Filter>Source Files\Engine\Rendering</Filter>
     </ClCompile>
     <ClCompile Include="ScoreDisplay.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -269,17 +269,17 @@
     <ClInclude Include="BoxCollider3D.h">
       <Filter>Header Files\Engine\DefaultComponents</Filter>
     </ClInclude>
-    <ClInclude Include="Rigidbody2D.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="CoinController.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Rigidbody2D.h">
+      <Filter>Header Files\Engine\DefaultComponents</Filter>
     </ClInclude>
     <ClInclude Include="TextRenderer.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Engine\Rendering</Filter>
     </ClInclude>
     <ClInclude Include="ScoreDisplay.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
