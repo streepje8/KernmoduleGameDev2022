@@ -110,6 +110,7 @@ void ParachutePanic::CreateAndOpenGameScene() {
 
 	//Make player
 	auto player = OICVAR(GameObject, new GameObject(), gameScene);
+	player->name = "player";
 
 	//Add components
 	player->AddComponentAndManage(new SpriteRenderer(".\\GameAssets\\sprites\\player.png"));
@@ -131,7 +132,7 @@ void ParachutePanic::CreateAndOpenGameScene() {
 
 	//Make coin
 	auto coin = OICVAR(GameObject, new GameObject(), gameScene);
-
+	coin->name = "coin";
 	//Add components
 	coin->AddComponentAndManage(new SpriteRenderer(".\\GameAssets\\sprites\\coin.png"));
 	coin->AddComponentAndManage(new Rigidbody2D());
@@ -140,7 +141,7 @@ void ParachutePanic::CreateAndOpenGameScene() {
 	coin->AddComponentAndManage(cboxcol);
 
 	//Setup variable values
-	coin->transform->position = Vector3(0, 100, 0);
+	coin->transform->position = Vector3(Math::Rand(-380, 380), 420, 0);
 	coin->transform->scale = Vector3(0.1, 0.1, 1);
 	cboxcol->width = 512;
 	cboxcol->height = 512;
@@ -149,6 +150,7 @@ void ParachutePanic::CreateAndOpenGameScene() {
 
 	//Make Score display
 	auto scoredisp = OICVAR(GameObject, new GameObject(), gameScene);
+	scoredisp->name = "scoredisplay";
 
 	//Add components
 	auto textRend = new TextRenderer(".\\GameAssets\\fonts\\BebasNeue-Regular.ttf");

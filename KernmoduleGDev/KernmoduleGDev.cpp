@@ -7,6 +7,7 @@ int main()
     game->Setup();
     sf::RenderWindow window(sf::VideoMode(800, 400), game->windowTitle.c_str());
     game->Awake();
+    /* Moved to Scene->Instantiate()
     Scene* s = SceneManager::GetInstance().GetCurrentScene();
     List<GameObject*>* objects = s->GetObjects();
     for (int i = 0; i < objects->count(); i++) {
@@ -15,6 +16,7 @@ int main()
             components->get(j)->Start();
         }
     }
+    */
     double oldTime = 0;
     while (window.isOpen())
     {

@@ -8,6 +8,10 @@ Scene::Scene()
 void Scene::Instantiate(GameObject* go)
 {
 	objects->add(go);
+	List<Component*>* components = go->GetAllComponents();
+	for (int j = 0; j < components->count(); j++) {
+		components->get(j)->Start();
+	}
 }
 
 void Scene::Destroy(GameObject* go)

@@ -4,6 +4,7 @@
 #include "MemoryManager.h"
 #include "MemoryStorable.h"
 #include "Component.h"
+#include <string>
 
 class GameObject : public MemoryStorable
 {
@@ -20,6 +21,7 @@ class GameObject : public MemoryStorable
 		Component* AddComponentAndManage(Component* c);
 		Component* AddComponent(Component* c);
 		Transform* transform;
+		std::string name;
 		GameObject();
 		virtual ~GameObject()
 		{

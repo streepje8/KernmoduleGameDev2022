@@ -10,6 +10,7 @@
 #define VAR(type, instance) (type*)((OCVAR(StorableWrapper<type>, new StorableWrapper<type>(instance)))->wrappedobj)
 
 #define GetComponent ((GameObject*)gameObject)->GetComponentFromObject
+#define GameOBJ ((GameObject*)gameObject)
 
 #define Time TimeManager::GetInstance()
 #define Input InputManager::GetInstance()

@@ -15,6 +15,7 @@ void BoxCollider2D::Update()
 			if (!((obj->transform->position.x - (collider->width * transform->scale.x) / 2) <= transform->position.x + (width * transform->scale.x) && (obj->transform->position.x + (collider->width * transform->scale.x) / 2) >= transform->position.x - (width * transform->scale.x))) isColliding = false;
 			if (!((obj->transform->position.y - (collider->height * transform->scale.y) / 2) <= transform->position.y + (height * transform->scale.y) && (obj->transform->position.y + (collider->height * transform->scale.y) / 2) >= transform->position.y - (height * transform->scale.y))) isColliding = false;
 			if (isColliding) {
+				lastCollidedWith = obj;
 				List<Component*>* allcomps = ((GameObject*)gameObject)->GetAllComponents();
 				for (int i = 0; i < allcomps->count(); i++) {
 					allcomps->get(i)->OnCollision();
