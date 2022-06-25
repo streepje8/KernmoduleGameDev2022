@@ -1,20 +1,23 @@
 #include "ParachutePanic.h"
 #include "StreepEngine.h"
+#include <chrono>
 
 int main()
 {
     Game* game = new ParachutePanic();
+    std::srand(std::chrono::system_clock::to_time_t(std::chrono::system_clock::now()));
     game->Setup();
     sf::RenderWindow window(sf::VideoMode(800, 400), game->windowTitle.c_str());
     game->Awake();
-    double oldTime = 0;
+    window.setFramerateLimit(144);
+    auto oldTime = std::chrono::high_resolution_clock::now();
     while (window.isOpen())
     {
-        double currentTime = clock();
-        Time.time = currentTime / 1000.0f;
-        Time.deltaTime = (currentTime - oldTime) / 1000.0f;
+        auto currentTime = std::chrono::high_resolution_clock::now();
+        Time.time = clock() / 1000.0f;
+        Time.deltaTime = (std::chrono::duration_cast<std::chrono::nanoseconds>(currentTime - oldTime).count()) / 10000000000.0f;
         Time.FPS = 1.0f / Time.deltaTime; 
-        oldTime = clock();
+        oldTime = std::chrono::high_resolution_clock::now();
         sf::Event winEvent;
         while (window.pollEvent(winEvent))
         {
